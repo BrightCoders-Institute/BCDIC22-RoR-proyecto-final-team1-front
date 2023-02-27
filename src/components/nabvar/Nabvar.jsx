@@ -1,6 +1,6 @@
-import logo from '../assets/airbnb-icon.svg';
+import logo from '../../assets/airbnb-icon.svg';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-
+import './NavBar.css'
 
 export default function navBar() {
   return (
