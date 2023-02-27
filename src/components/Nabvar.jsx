@@ -6,16 +6,17 @@ export default function navBar() {
   return (
     <nav>
       <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <div>
+        <div className='flex logoFont items-center'>
           <img src={logo} alt="logo"></img>
+          <h1>AirBnb</h1>
         </div>
-        <div className="flex">
+        <div className="flex justify-start px-2 flex-grow-0">
           <span>Cualquier lugar</span>
           <span>Cualquier semana</span>
           <span>¿Cuantos? 
           </span>
-          <div className="h-8 w-8 flex items-center bg-red-600 rounded-3xl ">
-            <MagnifyingGlassIcon className="h-6 w-6 text-neutral-50" />
+          <div className="h-8 w-8 flex items-center bg-red-600 rounded-full">
+            <MagnifyingGlassIcon className="h-5 w-5 text-neutral-50 mx-auto" />
           </div>
         </div>
         <div>
