@@ -1,0 +1,27 @@
+nav {
+  font-family: AirbnbCerealXBd;
+}
+
+.rausch {
+  color: #FF5A5F;
+}
+
+.separator {
+  @apply mr-1 pr-2;
+  border-right: 1px solid gray;
+}
+
+.how-many {
+  @apply mr-1;
+  font-family: AirbnbCerealLight;
+}
+
+.mglass-icon {
+  @apply h-8 w-8 flex items-center rounded-full relative;
+  left: 10px;
+  background-color: #FF5A5F;
+}
+
+.bg-rausch {
+  background-color: gray;
+}
