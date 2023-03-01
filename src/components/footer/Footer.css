@@ -1,0 +1,24 @@
+.footer-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.row {
+  justify-content: space-between;
+}
+
+.col-md-6 {
+  display: inline-block; 
+  vertical-align: middle; 
+  text-align: center; 
+  width: 50%;
+}
+
+.align-right {
+  text-align: right; /* Agregamos esta propiedad para alinear el texto a la derecha */
+}
+
+.align-right {
+  text-align: right; /* Agregamos esta propiedad para alinear el texto a la derecha */
+}
