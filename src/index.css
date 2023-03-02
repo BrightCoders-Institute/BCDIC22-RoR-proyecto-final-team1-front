@@ -38,3 +38,9 @@
   src: local("AirbnbCerealXBd"),
     url("./fonts/AirbnbCereal_W_XBd.otf");
 }
+
+body {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}

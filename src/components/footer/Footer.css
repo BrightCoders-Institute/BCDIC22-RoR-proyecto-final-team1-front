@@ -1,7 +1,12 @@
+footer {
+  font-family: AirbnbCerealXBd;
+}
+
 .footer-bottom {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  padding-right: 13%;
 }
 
 .row {
@@ -11,14 +16,13 @@
 .col-md-6 {
   display: inline-block; 
   vertical-align: middle; 
-  text-align: center; 
   width: 50%;
 }
 
-.align-right {
-  text-align: right; /* Agregamos esta propiedad para alinear el texto a la derecha */
+.align-left {
+  justify-content: flex-start;
 }
 
 .align-right {
-  text-align: right; /* Agregamos esta propiedad para alinear el texto a la derecha */
+  justify-content: flex-end;
 }
