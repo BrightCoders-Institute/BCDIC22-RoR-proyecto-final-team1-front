@@ -18,6 +18,7 @@ import { GiTreehouse } from "react-icons/gi"
 import { GiIsland } from "react-icons/gi"
 import { GiParkBench } from "react-icons/gi"
 import { BiDish } from "react-icons/bi"
+import { RiFilter3Line } from "react-icons/ri"
 
 const filterList = [
   { id:1, iconF:MdCottage, details:"Casas de Campo"  },
@@ -38,21 +39,32 @@ const filterList = [
   { id:16, iconF:GiIsland, details:"Islas"  },
   { id:17, iconF:GiParkBench, details:"Parques nacionales"  },
   { id:18, iconF:BiDish, details:"Luxe"  },
-  { id:18, iconF:GiUfo, details:"Extraordinarios"  }
+  { id:19, iconF:GiUfo, details:"Extraordinarios"  }
 ];
 
 export default function navBar() {
   return (
-    <div class="filter-nav pt-8 pb-3 mx-6 overflow-y-auto whitespace-nowrap scroll-smooth flex flex-row">
+    <div class="flex flex-row justify-center items-center">
+      <div class="filter-nav pt-6 pb-3 mx-6 overflow-y-auto whitespace-nowrap scroll-smooth flex flex-row">
 
-      {filterList.map(option => (
-        <div class="filter-opt">
-          <option.iconF class="filter-icon" />
-          <a class="filter" href="#">{option.details}</a>
-        </div>
-      ))}
+        {filterList.map(option => (
+          <div class="filter-opt">
+            <option.iconF class="filter-icon" />
+            <a class="filter" href="#">{option.details}</a>
+          </div>
+        ))}
+
+      </div>
+    
+      <div class="button-filter-container">
+        <button type="button" class="button-filter">
+          <RiFilter3Line class="button-filter-icon" />
+          <p>Filtros</p>
+        </button>
+      </div>
 
     </div>
+
   )
 }
 
