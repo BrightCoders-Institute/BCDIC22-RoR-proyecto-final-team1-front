@@ -2,16 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "AirbnbCerealBd";   /*Can be any text*/
+  src: local("AirbnbCerealBd"),
+    url("./fonts/AirbnbCereal_W_Bd.otf");
+  font-weight: bold;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "AirbnbCerealBk";   /*Can be any text*/
+  src: local("AirbnbCerealBk"),
+    url("./fonts/AirbnbCereal_W_Bk.otf");
+}
+
+@font-face {
+  font-family: "AirbnbCerealBlk";   /*Can be any text*/
+  src: local("AirbnbCerealBlk"),
+    url("./fonts/AirbnbCereal_W_Blk.otf");
+}
+
+@font-face {
+  font-family: "AirbnbCerealLight";   /*Can be any text*/
+  src: local("AirbnbCerealLight"),
+    url("./fonts/AirbnbCereal_W_Lt.otf") format("OpenType");
+}
+
+@font-face {
+  font-family: "AirbnbCerealMd";   /*Can be any text*/
+  src: local("AirbnbCerealMd"),
+    url("./fonts/AirbnbCereal_W_Md.otf");
+}
+
+@font-face {
+  font-family: "AirbnbCerealXBd";   /*Can be any text*/
+  src: local("AirbnbCerealXBd"),
+    url("./fonts/AirbnbCereal_W_XBd.otf");
 }
