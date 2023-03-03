@@ -15,6 +15,7 @@ function Homepage() {
         </h1>
         <Link to={`/test`}>Ir a test</Link>
       </header>
+			<Cards />
     </>
   );
 }
