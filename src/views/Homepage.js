@@ -1,6 +1,7 @@
 import './Homepage.css';
 import { Link } from "react-router-dom";
 import NavBar from "../components/nabvar/Nabvar"
+import Cards from "../components/Cards/index"
 
 function Homepage() {
   return (
@@ -12,6 +13,7 @@ function Homepage() {
         </h1>
         <Link to={`/test`}>Ir a test</Link>
       </header>
+			<Cards />
     </>
   );
 }
