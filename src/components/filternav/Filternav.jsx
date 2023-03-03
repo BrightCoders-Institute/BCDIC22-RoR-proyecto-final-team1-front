@@ -1,7 +1,7 @@
 import './Filternav.css' 
-import { FireIcon } from "@heroicons/react/24/outline";
 import { MdCottage } from "react-icons/md";
 import { GiCastle } from "react-icons/gi"
+import { FireIcon } from "@heroicons/react/24/outline";
 import { GiGolfTee } from "react-icons/gi"
 import { MdOutlineHouseboat } from "react-icons/md"
 import { MdOutlineBedroomParent } from "react-icons/md"
@@ -11,116 +11,46 @@ import { GiWoodCabin } from "react-icons/gi"
 import { GiFamilyHouse } from "react-icons/gi"
 import { GiMountainRoad } from "react-icons/gi"
 import { GiPalmTree } from "react-icons/gi"
+import { GiUfo } from "react-icons/gi"
+import { GiHabitatDome } from "react-icons/gi"
+import { BsHouseDoor } from "react-icons/bs"
+import { GiTreehouse } from "react-icons/gi"
+import { GiIsland } from "react-icons/gi"
+import { GiParkBench } from "react-icons/gi"
+import { BiDish } from "react-icons/bi"
 
 const filterList = [
-  { id:1, iconF:"MdCottage", details:"Casas de Campo"  },
-  { id:2, iconF:"GiCastle", details:"Castillos"  }
-]
+  { id:1, iconF:MdCottage, details:"Casas de Campo"  },
+  { id:2, iconF:GiCastle, details:"Castillos"  },
+  { id:3, iconF:FireIcon, details:"Populares"  },
+  { id:4, iconF:GiGolfTee, details:"Golf"  },
+  { id:5, iconF:MdOutlineHouseboat, details:"Lago"  },
+  { id:6, iconF:MdOutlineBedroomParent, details:"Habitaciones Privadas"  },
+  { id:7, iconF:TbBeach, details:"Frente a la playa"  },
+  { id:8, iconF:GiPoolDive, details:"Albercas increibles"  },
+  { id:9, iconF:GiWoodCabin, details:"Cabañas"  },
+  { id:10, iconF:GiFamilyHouse, details:"Mansiones"  },
+  { id:11, iconF:GiMountainRoad, details:"Vista increible"  },
+  { id:12, iconF:GiPalmTree, details:"Tropical"  },
+  { id:13, iconF:GiHabitatDome, details:"Casas domo"  },
+  { id:14, iconF:BsHouseDoor, details:"Minicasas"  },
+  { id:15, iconF:GiTreehouse, details:"Casas de Arbol"  },
+  { id:16, iconF:GiIsland, details:"Islas"  },
+  { id:17, iconF:GiParkBench, details:"Parques nacionales"  },
+  { id:18, iconF:BiDish, details:"Luxe"  },
+  { id:18, iconF:GiUfo, details:"Extraordinarios"  }
+];
 
-/*
-  {filterList.map(option => (
-    <div class="filter-opt">
-    <{option.iconF} class="filter-icon" />
-    <a class="filter" href="#">{option.details}</a>
-    </div>
-  ))} 
-  */
 export default function navBar() {
   return (
     <div class="filter-nav pt-8 pb-3 mx-6 overflow-y-auto whitespace-nowrap scroll-smooth flex flex-row">
 
-
-      <div class="filter-opt">
-        <MdCottage class="filter-icon" />
-        <a class="filter" href="#">Casas de Campo</a>
-      </div>
-
-      <div class="filter-opt">
-        <GiCastle class="filter-icon" />
-        <a class="filter" href="#">Castillos</a>
-      </div>
-
-      <div class="filter-opt">
-        <FireIcon class="filter-icon" />
-        <a class="filter" href="#">Populares</a>
-      </div>
-
-      <div class="filter-opt">
-        <GiGolfTee class="filter-icon" />
-        <a class="filter" href="#">Golf</a>
-      </div>
-
-      <div class="filter-opt">
-        <MdOutlineHouseboat class="filter-icon" />
-        <a class="filter" href="#">Lago</a>
-      </div>
-
-      <div class="filter-opt">
-        <MdOutlineBedroomParent class="filter-icon" />
-        <a class="filter" href="#">Habitaciones privadas</a>
-      </div>
-
-      <div class="filter-opt">
-        <TbBeach class="filter-icon" />
-        <a class="filter" href="#">Frente a la playa</a>
-      </div>
-
-      <div class="filter-opt">
-        <GiPoolDive class="filter-icon" />
-        <a class="filter" href="#">Albercas increibles</a>
-      </div>
-
-      <div class="filter-opt">
-        <GiWoodCabin class="filter-icon" />
-        <a class="filter" href="#">Cabañas</a>
-      </div>
-
-      <div class="filter-opt">
-        <GiFamilyHouse class="filter-icon" />
-        <a class="filter" href="#">Mansiones</a>
-      </div>
-
-      <div class="filter-opt">
-        <GiMountainRoad class="filter-icon" />
-        <a class="filter" href="#">Vista increible</a>
-      </div>
-    
-      <div class="filter-opt">
-        <GiPalmTree class="filter-icon" />
-        <a class="filter" href="#">Tropical</a>
-      </div>
-
-      <div class="filter-opt">
-        <a class="filter" href="#">Extraordinarios</a>
-      </div>
-
-      <div class="filter-opt">
-        <a class="filter" href="#">Casas domo</a>
-      </div>
-
-      <div class="filter-opt">
-        <a class="filter" href="#">Minicasas</a>
-      </div>
-
-      <div class="filter-opt">
-        <a class="filter" href="#">En el lago</a>
-      </div>
-
-      <div class="filter-opt">
-        <a class="filter" href="#">Casas de arbol</a>
-      </div>
-
-      <div class="filter-opt">
-        <a class="filter" href="#">Islas</a>
-      </div>
-
-      <div class="filter-opt">
-        <a class="filter" href="#">Parques nacionales</a>
-      </div>
-
-      <div class="filter-opt">
-        <a class="filter" href="#">Luxe</a>
-      </div>
+      {filterList.map(option => (
+        <div class="filter-opt">
+          <option.iconF class="filter-icon" />
+          <a class="filter" href="#">{option.details}</a>
+        </div>
+      ))}
 
     </div>
   )
