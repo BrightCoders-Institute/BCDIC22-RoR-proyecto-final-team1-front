@@ -1,5 +1,5 @@
 footer {
-  font-family: AirbnbCereal_W_Bd;
+  font-family: AirbnbCerealLight;
 }
 
 .footer-bottom {
@@ -7,15 +7,12 @@ footer {
   bottom: 0;
   width: 100%;
   margin-left: -68px;
-  padding-top: 3%;
-  padding-bottom: 1%;
 }
 
 .row {
   justify-content: space-between;
   border-top: 1px solid #000000;
-  border-color: rgb(189, 189, 189);
-  padding-left: 3%;
+  border-color: rgb(221, 221, 221);
 }
 
 .col-md-6 {
@@ -26,21 +23,36 @@ footer {
 
 .data-f-1 {
   justify-content: flex-end; 
-  padding-top: 10px;
-  font-size: 1em;
+  padding-left: -10%;
+  font-size: .89em;
   word-spacing: 0.2em;
 }
 
 .data-f-2 {
   justify-content: flex-end; 
   padding-top: 10px;
-  padding-right: 10%;
+  padding-right: 8%;
+  padding-left: 20px;
+  padding-bottom: 1%;
   word-spacing: 0.2em;
+  font-size: .88em;
+  font-weight: 100;
   vertical-align: middle;
 }
 
-.up-icon {
-  margin-right: 15px;
+.margin-a {
+  margin-right: -1%;
 }
 
-/* push test */
+.margin-b {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.margin-c {
+  margin-left: 2%;
+}
+
+.up-icon {
+  margin-left: 1%;
+}
