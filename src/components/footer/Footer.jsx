@@ -10,7 +10,7 @@ export default function footer() {
       <div className='row'>
         <div className='col-md-6'>
           <p className='flex data-f-1'>
-            © 2023 Airbnb, Inc. · 
+            © 2023 EarthBnD, Inc. · 
             <button className='margin-b'>Privacidad</button> 
             · 
             <button className='margin-b'>Términos</button> 
