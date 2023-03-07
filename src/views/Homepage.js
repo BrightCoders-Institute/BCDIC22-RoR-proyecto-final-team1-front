@@ -10,12 +10,6 @@ function Homepage() {
     <>
     <NavBar />
     <FilterNav />
-      <header className="App-header">
-        <h1>
-          Header
-        </h1>
-        <Link to={`/test`}>Ir a test</Link>
-      </header>
       <Cards />
       <Footer />    
     </>
