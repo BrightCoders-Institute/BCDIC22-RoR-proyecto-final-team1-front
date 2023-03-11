@@ -1,7 +1,36 @@
-.font{
-    font-family: AirbnbCerealLight;
+.font {
+  font-family: AirbnbCerealLight;
+  @apply mx-auto w-4/5
 }
 
-.bld{
-    @apply font-bold flex
+.body {
+  @apply columns-2 flex
+}
+
+.bld {
+  @apply font-bold flex
+}
+
+.seller {
+  @apply w-9/12
+}
+
+.seller-pp {
+  @apply w-3/12
+}
+
+.icon-f {
+  @apply h-12 w-12 ml-auto mr-auto
+}
+
+.icon {
+  @apply h-6 w-6
+}
+
+.fst-c {
+  @apply w-3/5 divide-y
+}
+
+.snd-c {
+  @apply w-2/5
 }
