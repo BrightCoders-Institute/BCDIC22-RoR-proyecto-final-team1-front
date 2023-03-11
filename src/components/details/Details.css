@@ -1,0 +1,7 @@
+.font{
+    font-family: AirbnbCerealLight;
+}
+
+.bld{
+    @apply font-bold flex
+}
