@@ -1,13 +1,14 @@
 .body {
-  @apply columns-2 flex mx-auto w-8/12
-}
-
-.font {
   font-family: AirbnbCerealLight;
+  @apply columns-2 flex mx-auto w-8/12
 }
 
 .bld {
   @apply font-bold flex
+}
+
+.bld-mi {
+  @apply font-bold flex underline mb-5
 }
 
 .bld-l {
@@ -38,6 +39,7 @@
   @apply h-7 w-7 mr-5
 }
 
+
 .fst-c {
   @apply divide-y w-7/12
 }
@@ -63,5 +65,17 @@
 }
 
 .m-s{
-  @apply mt-5 mb-5
+  @apply mt-5 mb-2
+}
+
+.sty{
+  @apply flex font-bold mt-2 mb-5 underline 
+}
+
+.m-n{
+  @apply -mr-1
+}
+
+.icon-d {
+  @apply h-6 w-6 mr-5 align-middle mt-0.5
 }
