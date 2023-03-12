@@ -23,16 +23,12 @@ export default function footer() {
             <CgProfile className="icon-f" />
           </div>
         </div>
-        {/* reference space */}
-        {/* reference space */}
-        {/* reference space */}
-        {/* reference space */}
         <div>
           <div className='pdg-y g-col'>
             <div className='row-span-2'>
               <TrophyIcon className="icon" />
             </div>
-            <div className=''>
+            <div>
               <p className='bld'>Ale Y Cris es SuperAnfitrión</p>
               <p>Los SuperAnfitriones son anfitriones experimentados,
                 con evaluaciones excelentes, que se esfuerzan al máximo por ofrecer estancias maravillosas.</p>
