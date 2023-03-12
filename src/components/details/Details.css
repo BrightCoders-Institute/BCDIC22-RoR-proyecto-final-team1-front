@@ -1,14 +1,17 @@
-.font {
-  font-family: AirbnbCerealLight;
-  @apply mx-auto w-4/5
+.body {
+  @apply columns-2 flex mx-auto w-8/12
 }
 
-.body {
-  @apply columns-2 flex
+.font {
+  font-family: AirbnbCerealLight;
 }
 
 .bld {
   @apply font-bold flex
+}
+
+.bld-l {
+  @apply font-bold flex mb-5
 }
 
 .seller {
@@ -20,17 +23,45 @@
 }
 
 .icon-f {
-  @apply h-12 w-12 ml-auto mr-auto
+  @apply h-14 w-14 ml-auto mr-auto
 }
 
 .icon {
-  @apply h-6 w-6
+  @apply h-7 w-7
+}
+
+.icon-m {
+  @apply h-7 w-7 -mt-6
+}
+
+.icon-l {
+  @apply h-7 w-7 mr-5
 }
 
 .fst-c {
-  @apply w-3/5 divide-y
+  @apply divide-y w-7/12
 }
 
-.snd-c {
-  @apply w-2/5
+.c-sty{
+  @apply columns-2 flex my-5 
+}
+
+.spcn{
+  @apply pr-48 -mt-8
+}
+
+.pdg-y{
+  @apply mt-5 -mb-8
+}
+
+.g-col{
+  @apply grid grid-rows-2 grid-flow-col gap-4
+}
+
+.img-s{
+  @apply w-1/5 h-2/5 pt-6
+}
+
+.m-s{
+  @apply mt-5 mb-5
 }
