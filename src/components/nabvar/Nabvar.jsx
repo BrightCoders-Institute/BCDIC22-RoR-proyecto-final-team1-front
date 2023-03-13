@@ -1,11 +1,12 @@
+import { useState } from 'react'
 import logo from '../../assets/airbnb-icon.svg';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
-
 import './NavBar.css'
 
-export default function navBar() {
+export default function NavBar() {
+  const [isActive, setIsActive] = useState(false)
   return (
     <nav className='border-b'>
       <div className='nav-container'>
@@ -23,11 +24,32 @@ export default function navBar() {
         </div>
         <div className='flex items-center'>
           <span className='mr-2 cursor-pointer'>Hazte anfritrión</span>
-          <div className='options-container'>
+          <div className='options-container' onClick={() => setIsActive(!isActive)}>
             <Bars3Icon className="h-5 w-5 text-gray-500 mx-1" />
             <div className="bg-gray rounded-full mx-1">
               <UserIcon className="h-7 w-7 text-neutral-50" />
             </div>
+            {isActive && (
+              <div className='dropdown-content'>
+                <div className='dropdown-item'>
+                  Registrate
+                </div>
+                <div className='dropdown-item'>
+                  Iniciar sesion
+                </div>
+                <div className='separator2'>
+                  <div className='dropdown-item'>
+                    Pon tu casa en EarthDnd
+                  </div>
+                  <div className='dropdown-item'>
+                    Organiza una experiencia
+                  </div>
+                  <div className='dropdown-item'>
+                    Ayuda
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
