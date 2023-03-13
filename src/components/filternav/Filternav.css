@@ -3,6 +3,10 @@
   border-right: 2px solid lightgray;
 }
 
+.filter-nav::-webkit-scrollbar {
+  display: none;
+}
+
 .filter-opt {
   @apply flex flex-wrap justify-center items-center mx-2;
   cursor: pointer;
