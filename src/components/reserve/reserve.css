@@ -1,0 +1,115 @@
+.reserve-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	flex-direction: column;
+	padding-right: 2rem;
+	border: 0.1rem solid #c6c5c5;
+	border-radius: 20px;
+	box-shadow: 0px 00px 10px rgb(157, 157, 159);
+}
+
+.price {
+	display: flex;
+	padding: 0.5rem;
+}
+
+.p-price {
+	padding: 0rem 2rem;
+}
+
+.price-font {
+	font-size: 1.3rem;
+}
+
+.link-evaluation {
+	text-decoration-line: underline;
+}
+
+.calender {
+	display: flex;
+	padding-left: 2rem;
+}
+.c-llegada {
+	padding-left: 0.4rem;
+	border: 0.1rem solid #9f9e9e;
+}
+
+.c-salida {
+	padding-left: 0.4rem;
+	border: 0.1rem solid #9f9e9e;
+	border-left: none;
+}
+
+.huesped {
+	display: flex;
+	border: 0.1rem solid #9f9e9e;
+	border-top: none;
+	padding: 0.7rem 2.65rem;
+}
+
+.text-huesped {
+	padding: 0rem 2rem;
+}
+
+.reserve-button {
+	 padding: 1rem;
+}
+
+.button-reserve {
+	background-image: linear-gradient(92.88deg, #8645b5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 1rem 5rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-reserve:hover {
+	background-image: linear-gradient(92.88deg, #8645b5 9.16%, #b543cc 43.89%, #8645b5 64.72%);
+  transition-duration: .1s;
+}
+
+.total-reserve {
+	padding: 1rem;
+}
+.total {
+	display: flex;
+}
+
+.text-multi-day {
+	text-decoration: underline;
+	padding-left: 1rem;
+}
+.text-total {
+	padding-left: 3rem;
+}
+
+
+.total-iva {
+	display: flex;
+	justify-content: center;
+  align-items: center;
+	padding-top: 2rem;
+}
+
+.text-total-iva {
+	padding-left: 1rem;
+}
+
+.text-multi-day-iva {
+	padding-left: 2.5rem;
+}
+
