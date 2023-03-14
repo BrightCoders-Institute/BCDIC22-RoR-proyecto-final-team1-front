@@ -1,5 +1,6 @@
 nav {
   font-family: AirbnbCerealMd;
+  user-select: none;
 }
 
 .rausch {
@@ -35,5 +36,34 @@ nav {
 }
 
 .options-container {
-  @apply rounded-full border-2 py-1 flex items-center cursor-pointer;
+  @apply rounded-full border-2 py-1 flex items-center cursor-pointer relative;
+}
+
+.dropdown-content {
+  font-size: 15px;
+  font-family: AirbnbCerealLight;
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.10);
+  font-weight: 500;
+  color: #333;
+  width: 200px;
+  z-index: 2;
+}
+
+.separator2 {
+  border-top: 1px solid gray;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #f4f4f4;
 }
