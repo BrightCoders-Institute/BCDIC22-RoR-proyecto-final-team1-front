@@ -3,10 +3,12 @@ import logo from '../../assets/airbnb-icon.svg';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
+import SignUser from '../signuser/Signuser'
 import './NavBar.css'
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false)
+  const [isLoginActive, setIsLoginActive] = useState(false)
   return (
     <nav className='border-b'>
       <div className='nav-container'>
@@ -31,10 +33,10 @@ export default function NavBar() {
             </div>
             {isActive && (
               <div className='dropdown-content'>
-                <div className='dropdown-item'>
+                <div className='dropdown-item' onClick={() => setIsLoginActive(!isLoginActive)}>
                   Registrate
                 </div>
-                <div className='dropdown-item'>
+                <div className='dropdown-item' onClick={() => setIsLoginActive(!isLoginActive)}>
                   Iniciar sesion
                 </div>
                 <div className='separator2'>
@@ -53,6 +55,9 @@ export default function NavBar() {
           </div>
         </div>
       </div>
+      {isLoginActive && (
+        <SignUser />
+      )}
     </nav>
   )
 }

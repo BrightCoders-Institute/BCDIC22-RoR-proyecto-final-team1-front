@@ -1,7 +1,9 @@
-* {
+.signUpCard {
+  @apply absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
   font-family: AirbnbCerealBd;
 }
 
 .box-login {
   box-shadow: 0 0 20px 6px;
 }
+

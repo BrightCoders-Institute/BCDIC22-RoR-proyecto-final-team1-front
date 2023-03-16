@@ -9,7 +9,7 @@ import aircover from "../../assets/aircover.jpg";
 
 export default function footer() {
   return (
-    <div class="body">
+    <div className="body">
       <div className='fst-c'>
         <div className='c-sty'>
           <div className='seller'>

@@ -22,7 +22,7 @@ export default function footer() {
         </div>
         <div className='col-md-6'>
           <p className='flex data-f-2'>
-            <button className='margin-a'><GlobeAltIcon class="h-5 w-6 text-black-500" /></button>
+            <button className='margin-a'><GlobeAltIcon className="h-5 w-6 text-black-500" /></button>
             <button className='margin-b'> Español (MX) </button>
             <button className='margin-b'> $ MXN </button> 
             <button className='margin-b'> Ayuda y recursos </button>
