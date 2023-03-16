@@ -4,6 +4,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
 import SignUser from '../signuser/Signuser'
+import { Link } from "react-router-dom";
 import './NavBar.css'
 
 export default function NavBar() {
@@ -17,7 +18,9 @@ export default function NavBar() {
     <nav className='border-b'>
       <div className='nav-container'>
         <div className='flex items-center cursor-pointer'>
-          <img className='w-8' src={logo} alt="logo"></img>
+          <Link to={`/`}>
+            <img className='w-8' src={logo} alt="logo"></img>
+          </Link>
           <h1 className='rausch text-xl'>earthbnd</h1>
         </div>
         <div className='search-bar'>
@@ -37,7 +40,7 @@ export default function NavBar() {
             </div>
             {isActive && (
               <div className='dropdown-content'>
-                <div className='dropdown-item'>
+                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
                   Registrate
                 </div>
                 <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
