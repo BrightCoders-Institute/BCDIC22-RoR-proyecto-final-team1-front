@@ -9,6 +9,10 @@ import './NavBar.css'
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false)
   const [isLoginActive, setIsLoginActive] = useState(false)
+
+  function handleStateChange(newState) {
+    setIsLoginActive(newState);
+  }
   return (
     <nav className='border-b'>
       <div className='nav-container'>
@@ -33,10 +37,10 @@ export default function NavBar() {
             </div>
             {isActive && (
               <div className='dropdown-content'>
-                <div className='dropdown-item' onClick={() => setIsLoginActive(!isLoginActive)}>
+                <div className='dropdown-item'>
                   Registrate
                 </div>
-                <div className='dropdown-item' onClick={() => setIsLoginActive(!isLoginActive)}>
+                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
                   Iniciar sesion
                 </div>
                 <div className='separator2'>
@@ -56,7 +60,7 @@ export default function NavBar() {
         </div>
       </div>
       {isLoginActive && (
-        <SignUser />
+        <SignUser onStateChange={handleStateChange} />
       )}
     </nav>
   )

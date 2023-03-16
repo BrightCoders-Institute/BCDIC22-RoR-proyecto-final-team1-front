@@ -9,15 +9,16 @@ import { AiOutlineMail } from 'react-icons/ai'
 import './SignUser.css';
 import 'react-phone-number-input/style.css'
 
-export default function SignUser(enabled) {
+export default function SignUser(props) {
   const [value, setValue] = useState();
-
+  function handleClick() {
+    props.onStateChange(false);
+  }
   return (
     <div className="signUpCard box-login flex flex-col bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
-      <div className="font-bold text-center flex justify-center items-center self-center pb-4 w-full text-gray-800 border-b-gray-300 border-b-2">
-        <AiOutlineClose className="w-4 h-4 flex-1" />
-        <div className="">Inicia sesión o regístrate {enabled.value}</div>
-        <div className="flex-1"></div>
+      <div className="font-bold flex justify-center align-middle pb-4 w-full text-gray-800 border-b-gray-300 border-b-2">
+        <AiOutlineClose className="closeBtn" onClick={handleClick}/>
+        <h1 className="text-center">Inicia sesión o regístrate</h1>
       </div>
       <div className="mt-10">
         <form action="#">
