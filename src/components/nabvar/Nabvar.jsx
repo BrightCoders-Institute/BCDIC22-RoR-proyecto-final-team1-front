@@ -17,12 +17,10 @@ export default function NavBar() {
   return (
     <nav className='border-b'>
       <div className='nav-container'>
-        <div className='flex items-center cursor-pointer'>
-          <Link to={`/`}>
-            <img className='w-8' src={logo} alt="logo"></img>
-          </Link>
+        <Link className='flex items-center cursor-pointer' to={`/`}>
+          <img className='w-8' src={logo} alt="logo"></img>
           <h1 className='rausch text-xl'>earthbnd</h1>
-        </div>
+        </Link>
         <div className='search-bar'>
           <span className='separator'>Cualquier lugar</span>
           <span className='separator'>Cualquier semana</span>
