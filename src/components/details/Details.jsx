@@ -6,6 +6,7 @@ import { MdOutlineCalendarToday } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import aircover from "../../assets/aircover.jpg";
+import Reserve from "../../components/reserve/reserve"
 
 export default function footer() {
   return (
@@ -73,7 +74,9 @@ export default function footer() {
         </div>
       </div>
       <div className=''>
-        <p className=''>Second Column</p>
+        <div className='sticky top-5'>
+        <p className='mt-5 mb-5'><Reserve /></p>
+        </div>
       </div>
     </div>
   );

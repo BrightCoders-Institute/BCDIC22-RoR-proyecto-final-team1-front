@@ -34,8 +34,8 @@ export default function Reserve() {
           <input type="date" id="birthday" name="birthday"></input>
         </div>
       </div>
-      <div className="huesped">
-        <p className="text-huesped">HÚESPEDES</p>
+      <div className="huesped w-4/5 ml-10">
+        <p className="text-huesped ">HÚESPEDES</p>
         <button className="button-huesped">
           <svg
             xmlns="http://www.w3.org/2000/svg"

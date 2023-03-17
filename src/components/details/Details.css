@@ -1,6 +1,6 @@
 .body {
   font-family: AirbnbCerealLight;
-  @apply columns-2 flex mx-auto w-8/12
+  @apply columns-2 flex mx-auto w-8/12 gap-x-20
 }
 
 .bld {
@@ -57,7 +57,7 @@
 }
 
 .g-col{
-  @apply grid grid-rows-2 grid-flow-col gap-4
+  @apply grid grid-rows-2 grid-flow-col gap-4 
 }
 
 .img-s{
