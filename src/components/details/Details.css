@@ -79,3 +79,19 @@
 .icon-d {
   @apply h-6 w-6 mr-5 align-middle mt-0.5
 }
+
+.i-c{
+  @apply -mr-5
+}
+
+.t-c{
+  @apply -ml-10
+}
+
+.amen{
+  @apply grid grid-rows-5 grid-flow-col gap-4 mt-5 mb-5
+}
+
+.btn-amen{
+  @apply bg-white rounded-lg hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 border border-black shadow
+}
