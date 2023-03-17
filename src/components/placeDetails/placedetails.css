@@ -1,0 +1,41 @@
+.place-detail-flex {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	background-color: aqua;
+}
+
+.title-place {
+	font-size: 1.5rem;
+}
+
+.details {
+display: flex;
+padding: 1rem 0rem;
+}
+
+.detail-rating {
+	display: flex;
+}
+
+.separador {
+	padding: 0rem 1rem;
+}
+
+.text-evaluation {
+	text-decoration: underline;
+}
+
+.detail-superhost {
+	display: flex;
+}
+
+.text-content {
+	padding: 0rem 0.5rem;
+}
+
+
+
+
+
+

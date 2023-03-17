@@ -2,8 +2,8 @@ import "./placedetails.css";
 
 export default function PlaceDetail(place) {
   return (
-    <div className="cards-flex">
-      <h3>Exclusica Villa con Vista al Mar en Punta Diamante</h3>
+    <div className="place-detail-flex">
+      <h3 className="title-place">Exclusica Villa con Vista al Mar en Punta Diamante</h3>
       <div className="details">
         <div className="detail-rating">
           <svg
@@ -18,9 +18,17 @@ export default function PlaceDetail(place) {
               clipRule="evenodd"
             />
           </svg>
-          <p>4.98</p>
+          <p className="text-content">4.98</p>
         </div>
-        <p>.</p>
+				<div className="separador">
+					<p>.</p>
+				</div>
+				<div className="evaluation-detail">
+					<p className="text-evaluation">86 evaluaciones</p>
+				</div>
+				<div className="separador">
+					<p>.</p>
+				</div>
         <div className="detail-superhost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,12 +44,14 @@ export default function PlaceDetail(place) {
               d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
             />
           </svg>
-          <p>Super Anfitrión</p>
+          <p className="text-content">Super Anfitrión</p>
         </div>
-				<div className="evaluation-detail">
-					<p>86 evaluaciones</p>
+        <div className="separador">
+					<p>.</p>
 				</div>
-        <p>.</p>
+				<div className="text-countri">
+					<p className="text-ubication">Cancun, Yucatan, México</p>
+				</div>
         <div className="actions">
           <div className="action-share">
             <svg
@@ -79,10 +89,11 @@ export default function PlaceDetail(place) {
           </div>
         </div>
       </div>
-			<div className="palces-img">
-			{place.imgSrc.map((src, i) => (
-            <img src={src} alt="" className="card-img" />
-        ))}
+			<div className="places-img">
+        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lpibo-ew-1656015868.jpg" alt="" className="card-img" />
+				<img src="https://i0.wp.com/theluxuryeditor.com/wp-content/uploads/2019/02/178793622.jpg?resize=1024%2C683" alt="" className="card-img" />
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqg5siFywtSULLeH0eaN3k6cBQy_HSnJpJGQ&usqp=CAU" alt="" className="card-img" />
+				<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lpibo-ew-1656015868.jpg" alt="" className="card-img" />
 			</div>
     </div>
   );
