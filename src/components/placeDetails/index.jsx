@@ -5,7 +5,7 @@ import './placedetails.css'
 export default function PlaceDetails() {
 	
 	return (
-		<div className="cards-flex">
+		<div className="">
         <PlaceDetail />
     </div>
 	)
