@@ -17,7 +17,7 @@ export default function reviews() {
                 <div className="flex items-center mb-4 space-x-4">
                   <img className="w-10 h-10 rounded-full" src="https://pfpmaker.com/_nuxt/img/profile-3-1.3e702c5.png" alt="" />
                   <div className="space-y-1 font-medium dark:text-dark">
-                    <p className="text-lg font-bold">Jese Leos <time datetime="2014-08-16 19:00" className="block text-sm text-gray-500 dark:text-gray-400">August 2014</time></p>
+                    <p className="text-lg font-bold">Jese Leos <time dateTime="2014-08-16 19:00" className="block text-sm text-gray-500 dark:text-gray-400">August 2014</time></p>
                   </div>
                 </div>
                 <p className="mb-2 mt-6 font-light text-dark dark:text-dark">This is my third Invicta Pro Diver. They are just fantastic value for money. This one arrived yesterday and the first thing I did was set the time, popped on an identical strap from another Invicta and went in the shower with it to test the waterproofing.... No problems.</p>

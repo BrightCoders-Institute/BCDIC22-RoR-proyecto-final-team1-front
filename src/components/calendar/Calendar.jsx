@@ -1,12 +1,27 @@
-import './Calendar.css'
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRangePicker } from 'react-date-range';
+import { useState } from 'react';
+import { DateRange } from 'react-date-range';
+import './styles.css'; // main style file
+import './default.css'; // theme css file
 
-export default function NavBar() {
+export default function Calendar() {
+  const [dateRange, setDateRange] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    key: 'selection',
+  });
+
+  const handleSelect = (ranges) => {
+    setDateRange(ranges.selection);
+  };
+
   return (
-    <>
-      <h1>hello</h1>
-    </>
-  )
+      <DateRange
+        months={2}
+        moveRangeOnFirstSelection={false}
+        ranges={[dateRange]}
+        onChange={handleSelect}
+        rangeColors={["#000000"]}
+        direction={'horizontal'}
+      />
+  );
 }
