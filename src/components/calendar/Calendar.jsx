@@ -9,19 +9,32 @@ export default function Calendar() {
     endDate: new Date(),
     key: 'selection',
   });
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
+  const days = () => {
+    const startMs = dateRange.startDate.getTime();
+    const endMs = dateRange.endDate.getTime();
+    const diffMs = endMs - startMs;
+    return diffMs >= 1 ? Math.floor(diffMs / (1000 * 60 * 60 * 24)+1)+" nights" : "1 night"
+  }
   const handleSelect = (ranges) => {
     setDateRange(ranges.selection);
   };
 
   return (
+    <>
+    
+    <div className='ml-10'>
+    <h5 className='font-bold'>{days()} in New York</h5>
+    <span>{dateRange.startDate.toLocaleDateString('en-US', options)} - {dateRange.endDate.toLocaleDateString('en-US', options)}</span>
+    </div>
       <DateRange
         months={2}
-        moveRangeOnFirstSelection={false}
         ranges={[dateRange]}
         onChange={handleSelect}
         rangeColors={["#000000"]}
         direction={'horizontal'}
       />
+    </>
   );
 }
