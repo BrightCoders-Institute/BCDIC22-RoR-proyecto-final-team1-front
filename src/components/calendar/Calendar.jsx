@@ -23,10 +23,9 @@ export default function Calendar() {
 
   return (
     <>
-    
     <div className='ml-10'>
-    <h5 className='font-bold'>{days()} in New York</h5>
-    <span>{dateRange.startDate.toLocaleDateString('en-US', options)} - {dateRange.endDate.toLocaleDateString('en-US', options)}</span>
+      <h5 className='font-bold'>{days()} in New York</h5>
+      <span>{dateRange.startDate.toLocaleDateString('en-US', options)} - {dateRange.endDate.toLocaleDateString('en-US', options)}</span>
     </div>
       <DateRange
         months={2}
