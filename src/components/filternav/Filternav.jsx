@@ -42,23 +42,23 @@ const filterList = [
   { id:19, iconF:GiUfo, details:"Extraordinarios"  }
 ];
 
-export default function navBar() {
+export default function FilternavBar() {
   return (
-    <div class="flex flex-row justify-center items-center">
-      <div class="filter-nav pt-6 pb-3 mx-6 overflow-y-auto whitespace-nowrap scroll-smooth flex flex-row">
+    <div className="flex flex-row justify-center items-center">
+      <div className="filter-nav pt-6 pb-3 mx-6 overflow-y-auto whitespace-nowrap scroll-smooth flex flex-row">
 
         {filterList.map(option => (
-          <div class="filter-opt">
-            <option.iconF class="filter-icon" />
-            <a class="filter" href="#">{option.details}</a>
+          <div className="filter-opt" key={option.id}>
+            <option.iconF className="filter-icon" />
+            <a className="filter" href="#">{option.details}</a>
           </div>
         ))}
 
       </div>
     
-      <div class="button-filter-container">
-        <button type="button" class="button-filter">
-          <RiFilter3Line class="button-filter-icon" />
+      <div className="button-filter-container">
+        <button type="button" className="button-filter">
+          <RiFilter3Line className="button-filter-icon" />
           <p>Filtros</p>
         </button>
       </div>

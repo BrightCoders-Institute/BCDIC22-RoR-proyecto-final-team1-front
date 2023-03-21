@@ -7,13 +7,14 @@ import Reviews from "../../components/reviews/Reviews"
 import OwnerDetails from "../../components/ownerdetails/OwnerDetails"
 import LastDetails from "../../components/lastdetails/LastDetails"
 import Footer from "../../components/footer/Footer"
+import Calendar from "../../components/calendar/Calendar"
 
 function Placedetails() {
   return (
     <>
       <NavBar />
+      <Calendar/>
       <Details />
-      <Reserve />
       <ScoreRating />
       <Reviews />
       <OwnerDetails />
