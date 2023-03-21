@@ -14,7 +14,7 @@ export default function ownerDetails() {
         <div className="max-w-screen-xl px-4 py-2 sm:py-4 sm:px-6 lg:py-8 lg:px-8">
 
           <div className="flex justify-start items-center flex-wrap">
-            <a href="#" class="relative block">
+            <a href="#" className="relative block">
               <CgProfile className="mx-auto object-cover rounded-full h-16 w-16 " />
             </a>
             <div className="flex flex-col ml-2">
@@ -72,7 +72,7 @@ export default function ownerDetails() {
               <p className="text-dark text-sm font-normal mt-2">Tiempo de respuesta: En menos de una hora</p>
 
               <div className="mt-4">
-                <button type="button" class="button text-dark hover:bg-slate-200">Contacta al anfitrion</button>
+                <button type="button" className="button text-dark hover:bg-slate-200">Contacta al anfitrion</button>
               </div>
 
               <div className="mt-2 flex justify-start items-center">

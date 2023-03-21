@@ -15,7 +15,7 @@ export default function() {
                 <p className="mt-2 text-sm">Horario de llegada: de las 13:00 a las 20:00</p>
                 <p className="mt-2 text-sm">Salida antes de las 10:00</p>
                 <p className="mt-2 text-sm">6 Huespedes como maximo</p>
-                <a href="#" class="arrow">Mostrar más <IoIosArrowForward /> </a>
+                <a href="#" className="arrow">Mostrar más <IoIosArrowForward /> </a>
 
               </div>
             </div>
@@ -26,7 +26,7 @@ export default function() {
                 <p className="mt-2 text-sm">Lago, rio u otro cuerpo de agua cercano</p>
                 <p className="mt-2 text-sm">Estructura para trepar o jugar</p>
                 <p className="mt-2 text-sm">Alarma de monoxido de carbono</p>
-                <a href="#" class="arrow">Mostrar más <IoIosArrowForward /> </a>
+                <a href="#" className="arrow">Mostrar más <IoIosArrowForward /> </a>
 
               </div>
             </div>
@@ -39,7 +39,7 @@ export default function() {
                   Consulta la politica de cancelacion completa del anfition, que se aplica incluso si cancelas haber contraido
                   COVID-19 o por cualquier problema relacionado con el coronavirus.
                 </p>
-                <a href="#" class="arrow">Mostrar más <IoIosArrowForward /> </a>
+                <a href="#" className="arrow">Mostrar más <IoIosArrowForward /> </a>
 
               </div>
             </div>
