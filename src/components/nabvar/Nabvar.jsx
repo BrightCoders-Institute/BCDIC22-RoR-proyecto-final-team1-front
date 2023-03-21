@@ -3,17 +3,24 @@ import logo from '../../assets/airbnb-icon.svg';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
+import SignUser from '../signuser/Signuser'
+import { Link } from "react-router-dom";
 import './NavBar.css'
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false)
+  const [isLoginActive, setIsLoginActive] = useState(false)
+
+  function handleStateChange(newState) {
+    setIsLoginActive(newState);
+  }
   return (
     <nav className='border-b'>
       <div className='nav-container'>
-        <div className='flex items-center cursor-pointer'>
+        <Link className='flex items-center cursor-pointer' to={`/`}>
           <img className='w-8' src={logo} alt="logo"></img>
           <h1 className='rausch text-xl'>earthbnd</h1>
-        </div>
+        </Link>
         <div className='search-bar'>
           <span className='separator'>Cualquier lugar</span>
           <span className='separator'>Cualquier semana</span>
@@ -31,10 +38,10 @@ export default function NavBar() {
             </div>
             {isActive && (
               <div className='dropdown-content'>
-                <div className='dropdown-item'>
+                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
                   Registrate
                 </div>
-                <div className='dropdown-item'>
+                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
                   Iniciar sesion
                 </div>
                 <div className='separator2'>
@@ -53,6 +60,9 @@ export default function NavBar() {
           </div>
         </div>
       </div>
+      {isLoginActive && (
+        <SignUser onStateChange={handleStateChange} />
+      )}
     </nav>
   )
 }

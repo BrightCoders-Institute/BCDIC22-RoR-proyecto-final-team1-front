@@ -19,7 +19,7 @@ import Reserve from "../../components/reserve/reserve"
 
 export default function footer() {
   return (
-    <div class="body">
+    <div className="body">
       <div className='fst-c'>
         <div className='c-sty'>
           <div className='seller'>
