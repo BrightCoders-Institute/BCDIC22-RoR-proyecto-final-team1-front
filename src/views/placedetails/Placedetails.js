@@ -13,16 +13,16 @@ import Footer from "../../components/footer/Footer"
 function Placedetails() {
   return (
     <>
-      {/* <NavBar />
-      <PlaceDetails /> */}
+      <NavBar />
+      <PlaceDetails />
       <Details /> 
-      {/* <Calendar /> */}
-      {/* <ScoreRating /> */}
-      {/* <Reviews />
+      <Calendar />
+      <ScoreRating />
+      <Reviews />
       <Gmap />
       <OwnerDetails />
       <LastDetails />
-      <Footer /> */}
+      <Footer />
     </>
   );
 }
