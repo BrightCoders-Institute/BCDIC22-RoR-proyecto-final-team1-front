@@ -111,7 +111,7 @@ export default function footer() {
       </div>
       <div>
         <div className='sticky top-5 mb-5'>
-        <p className='mt-5 mb-5'><Reserve /></p>
+        <div className='mt-5 mb-5'><Reserve /></div>
         </div>
       </div>
     </div>

@@ -18,11 +18,9 @@ export default function Reserve() {
           </span>{" "}
           noche
         </p>
-        <p>
-          <Link to={`/place`}>
-            <span className="link-evaluation">1 evaluacion</span>
-          </Link>
-        </p>
+        <Link to={`/place`}>
+          <span className="link-evaluation">1 evaluacion</span>
+        </Link>
       </div>
       <div className="calender">
         <div className="c-llegada">

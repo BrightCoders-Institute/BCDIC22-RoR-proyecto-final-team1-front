@@ -4,7 +4,7 @@ export default function PlaceDetail(place) {
   return (
     <div className="place-detail-flex">
       <h3 className="title-place">
-        Exclusica Villa con Vista al Mar en Punta Diamante
+        Exclusiva Villa con Vista al Mar en Punta Diamante
       </h3>
       <div className="details-container">
         <div className="details">
