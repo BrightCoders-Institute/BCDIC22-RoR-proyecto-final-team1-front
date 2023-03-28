@@ -17,14 +17,15 @@ import { MdSmokeFree } from "react-icons/md";
 import aircover from "../../assets/aircover.jpg";
 import Reserve from "../../components/reserve/reserve"
 
-export default function footer() {
+export default function footer({details}) {
+  console.log(details)
   return (
     <div className="body">
       <div className='fst-c'>
         <div className='c-sty'>
           <div className='seller'>
             <p className='bld text-xl'>
-              Habitación privada en cabaña. Anfitrión: Ale Y Cris
+              { details.name }. Anfitrión: Ale Y Cris
             </p>
             <p className='text-base'>2 huéspedes · 1 habitación · 1 cama · 1 baño privado
             </p>

@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom"
+import { useLoaderData } from "react-router-dom"
 import './Placedetails.css';
 import NavBar from "../../components/nabvar/Nabvar"
 import PlaceDetails from "../../components/placeDetails/placeDetail"
@@ -13,11 +13,12 @@ import Footer from "../../components/footer/Footer"
 
 export default function Placedetails() {
   const place = useLoaderData()
+  console.log(place)
   return (
     <>
       <NavBar />
       <PlaceDetails />
-      <Details /> 
+      <Details details={ place }/> 
       <Calendar />
       <ScoreRating />
       <Reviews />
