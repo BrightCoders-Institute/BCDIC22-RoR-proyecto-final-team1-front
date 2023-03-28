@@ -1,3 +1,4 @@
+import { useLoaderData, useParams } from "react-router-dom"
 import './Placedetails.css';
 import NavBar from "../../components/nabvar/Nabvar"
 import PlaceDetails from "../../components/placeDetails/placeDetail"
@@ -10,7 +11,8 @@ import OwnerDetails from "../../components/ownerdetails/OwnerDetails"
 import LastDetails from "../../components/lastdetails/LastDetails"
 import Footer from "../../components/footer/Footer"
 
-function Placedetails() {
+export default function Placedetails() {
+  const place = useLoaderData()
   return (
     <>
       <NavBar />
@@ -26,4 +28,3 @@ function Placedetails() {
     </>
   );
 }
-export default Placedetails;
