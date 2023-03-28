@@ -2,7 +2,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 
 import './LastDetails.css'
 
-export default function() {
+export default function LastDetails() {
   return (
     <>
       <section className="text-dark mb-16">
