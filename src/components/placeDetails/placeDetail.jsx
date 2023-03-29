@@ -1,10 +1,10 @@
 import "./placedetails.css";
 
-export default function PlaceDetail(place) {
+export default function PlaceDetail({details}) {
   return (
     <div className="place-detail-flex">
       <h3 className="title-place">
-        Exclusiva Villa con Vista al Mar en Punta Diamante
+        { details.name }
       </h3>
       <div className="details-container">
         <div className="details">

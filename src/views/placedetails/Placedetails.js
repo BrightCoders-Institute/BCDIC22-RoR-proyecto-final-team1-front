@@ -17,7 +17,7 @@ export default function Placedetails() {
   return (
     <>
       <NavBar />
-      <PlaceDetails />
+      <PlaceDetails details={ place } />
       <Details details={ place }/> 
       <Calendar />
       <ScoreRating />

@@ -18,16 +18,19 @@ import aircover from "../../assets/aircover.jpg";
 import Reserve from "../../components/reserve/reserve"
 
 export default function footer({details}) {
-  console.log(details)
   return (
     <div className="body">
       <div className='fst-c'>
         <div className='c-sty'>
           <div className='seller'>
             <p className='bld text-xl'>
-              { details.name }. Anfitrión: Ale Y Cris
+              { details.description }. Anfitrión: Ale Y Cris
             </p>
-            <p className='text-base'>2 huéspedes · 1 habitación · 1 cama · 1 baño privado
+            <p className='text-base'>
+              <i>{ details.max_guest } huéspedes ·</i>
+              <i>{ details.number_rooms }  habitación ·</i>
+              <i>1 cama · </i>
+              <i>{ details.number_bathrooms } baño privado</i>
             </p>
           </div>
           <div className='seller-pp'>
