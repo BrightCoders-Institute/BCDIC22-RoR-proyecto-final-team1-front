@@ -3,6 +3,7 @@ import logo from '../../assets/airbnb-icon.svg';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
+import LogUser from "../loguser/LogUser"
 import SignUser from '../signuser/Signuser'
 import { Link } from "react-router-dom";
 import './NavBar.css'
@@ -10,9 +11,11 @@ import './NavBar.css'
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false)
   const [isLoginActive, setIsLoginActive] = useState(false)
+  const [isSignupActive, setIsSignupActive] = useState(false)
 
   function handleStateChange(newState) {
     setIsLoginActive(newState);
+    setIsSignupActive(newState);
   }
   return (
     <nav className='border-b'>
@@ -38,7 +41,7 @@ export default function NavBar() {
             </div>
             {isActive && (
               <div className='dropdown-content'>
-                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
+                <div className='dropdown-item' onClick={() => setIsSignupActive(true)}>
                   Registrate
                 </div>
                 <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
@@ -61,6 +64,9 @@ export default function NavBar() {
         </div>
       </div>
       {isLoginActive && (
+        <LogUser onStateChange={handleStateChange} />
+      )}
+      {isSignupActive && (
         <SignUser onStateChange={handleStateChange} />
       )}
     </nav>
