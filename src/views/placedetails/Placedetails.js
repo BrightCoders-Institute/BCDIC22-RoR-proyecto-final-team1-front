@@ -13,7 +13,6 @@ import Footer from "../../components/footer/Footer"
 
 export default function Placedetails() {
   const place = useLoaderData()
-  console.log(place)
   return (
     <>
       <NavBar />
