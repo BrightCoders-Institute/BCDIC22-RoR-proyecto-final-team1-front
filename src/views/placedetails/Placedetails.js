@@ -22,7 +22,7 @@ export default function Placedetails() {
       <Calendar />
       <ScoreRating />
       <Reviews />
-      <Gmap />
+      <Gmap details={ place } />
       <OwnerDetails />
       <LastDetails />
       <Footer />
