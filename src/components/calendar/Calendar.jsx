@@ -3,7 +3,7 @@ import { DateRange } from 'react-date-range';
 import './styles.css'; // main style file
 import './default.css'; // theme css file
 
-export default function Calendar() {
+export default function Calendar({details}) {
   const [dateRange, setDateRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -24,7 +24,7 @@ export default function Calendar() {
   return (
     <>
     <div className='ml-10'>
-      <h5 className='font-bold'>{days()} in New York</h5>
+      <h5 className='font-bold'>{days()} in {details.city}</h5>
       <span>{dateRange.startDate.toLocaleDateString('en-US', options)} - {dateRange.endDate.toLocaleDateString('en-US', options)}</span>
     </div>
       <DateRange

@@ -19,11 +19,11 @@ export default function Placedetails() {
       <NavBar />
       <PlaceDetails details={ place } />
       <Details details={ place }/> 
-      <Calendar />
+      <Calendar details={ place }/>
       <ScoreRating />
       <Reviews />
       <Gmap details={ place } />
-      <OwnerDetails />
+      <OwnerDetails details={ place }/>
       <LastDetails />
       <Footer />
     </>

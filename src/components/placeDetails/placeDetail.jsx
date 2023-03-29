@@ -53,7 +53,7 @@ export default function PlaceDetail({details}) {
             <p>.</p>
           </div>
           <div className="text-countri">
-            <p className="text-ubication text-underline">Cancun, Yucatan, México</p>
+            <p className="text-ubication text-underline">{details.city}, {details.state}, México</p>
           </div>
         </div>
         <div className="actions-items">
