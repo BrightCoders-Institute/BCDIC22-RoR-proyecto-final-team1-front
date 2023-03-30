@@ -1,0 +1,73 @@
+nav {
+  font-family: AirbnbCerealMd;
+  user-select: none;
+}
+
+.rausch {
+  color: #FF5A5F;
+}
+
+.nav-container {
+  @apply mx-auto py-4 flex items-center justify-between px-16;
+}
+
+.search-bar {
+  @apply flex items-center border-2 rounded-full px-4 py-1 cursor-pointer;
+}
+
+.separator {
+  @apply mr-1 pr-2;
+  border-right: 1px solid gray;
+}
+
+.how-many {
+  @apply mr-1;
+  font-family: AirbnbCerealLight;
+}
+
+.mglass-icon {
+  @apply h-8 w-8 flex items-center rounded-full relative;
+  left: 10px;
+  background-color: #FF5A5F;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.options-container {
+  @apply rounded-full border-2 py-1 flex items-center cursor-pointer relative;
+}
+
+.dropdown-content {
+  font-size: 15px;
+  font-family: AirbnbCerealLight;
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.10);
+  font-weight: 500;
+  color: #333;
+  width: 200px;
+  z-index: 2;
+}
+
+.separator2 {
+  border-top: 1px solid gray;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #f4f4f4;
+}
+
+.test {
+  background-color: red;
+}

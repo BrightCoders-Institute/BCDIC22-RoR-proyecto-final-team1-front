@@ -4,19 +4,16 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import LogUser from "../loguser/LogUser"
-import SignUser from '../signuser/Signuser'
 import logo from '../../assets/airbnb-icon.svg';
 
-import './NavBar.css'
+import './NavbarUser.css'
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false)
   const [isLoginActive, setIsLoginActive] = useState(false)
-  const [isSignupActive, setIsSignupActive] = useState(false)
 
   function handleStateChange(newState) {
     setIsLoginActive(newState);
-    setIsSignupActive(newState);
   }
   return (
     <nav className='border-b'>
@@ -42,12 +39,22 @@ export default function NavBar() {
             </div>
             {isActive && (
               <div className='dropdown-content'>
-                <div className='dropdown-item' onClick={() => setIsSignupActive(true)}>
-                  Registrate
+
+                <div className=''>
+                  <div className='dropdown-item'>
+                    Mensajes
+                  </div>
+                  <div className='dropdown-item'>
+                    Notificaciones
+                  </div>
+                  <div className='dropdown-item'>
+                    Listas de Favoritos
+                  </div>
+                  <div className='dropdown-item'>
+                    Viajes
+                  </div>
                 </div>
-                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
-                  Iniciar sesion
-                </div>
+
                 <div className='separator2'>
                   <div className='dropdown-item'>
                     Pon tu casa en EarthDnd
@@ -56,9 +63,18 @@ export default function NavBar() {
                     Organiza una experiencia
                   </div>
                   <div className='dropdown-item'>
-                    Ayuda
+                    Cuenta
                   </div>
                 </div>
+
+                <div className='separator2'></div>
+                <div className='dropdown-item'>
+                  Ayuda
+                </div>
+                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
+                  Logout
+                </div>
+
               </div>
             )}
           </div>
@@ -66,9 +82,6 @@ export default function NavBar() {
       </div>
       {isLoginActive && (
         <LogUser onStateChange={handleStateChange} />
-      )}
-      {isSignupActive && (
-        <SignUser onStateChange={handleStateChange} />
       )}
     </nav>
   )
