@@ -8,7 +8,7 @@ export default function Cards() {
 
 	const getApi = async () => {
 		try {
-			const res = await fetch('https://rickandmortyapi.com/api/character');
+			const res = await fetch('http://127.0.0.1:4000/place');
 			const data = await res.json();
 
 			console.log(data.results);
@@ -22,7 +22,7 @@ export default function Cards() {
 }, [])
 	return (
 		<div className="cards-flex">
-      {list.map((card, i) => (
+      {place.map((card, i) => (
         <Card card={card} key={i} />
       ))}
     </div>
