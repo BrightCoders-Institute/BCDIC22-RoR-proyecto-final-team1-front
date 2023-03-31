@@ -3,18 +3,40 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
-import LogUser from "../loguser/LogUser"
 import logo from '../../assets/airbnb-icon.svg';
 
 import './NavbarUser.css'
 
-export default function NavBar() {
+export default function NavBar({setCurrUser}) {
   const [isActive, setIsActive] = useState(false)
-  const [isLoginActive, setIsLoginActive] = useState(false)
 
-  function handleStateChange(newState) {
-    setIsLoginActive(newState);
+  const logout = async (setCurrUser) => {
+    const url = "http://127.0.0.1:4000/logout"
+    try {
+      const response = await fetch(url, {
+        method: 'delete',
+        headers: {
+          "content-type": 'application/json',
+          "authorization": localStorage.getItem("token")
+        },
+      })
+      const data = await response.json()
+      if(!response.ok) {
+        throw data.error
+      }else {
+        localStorage.removeItem("token")
+        setCurrUser(null)
+      }
+    } catch (error) {
+      console.log("Error", error)
+    }
   }
+
+  const handleClick = e => {
+    e.preventDefault()
+    logout(setCurrUser)
+  }
+
   return (
     <nav className='border-b'>
       <div className='nav-container'>
@@ -71,7 +93,7 @@ export default function NavBar() {
                 <div className='dropdown-item'>
                   Ayuda
                 </div>
-                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
+                <div className='dropdown-item' onClick={handleClick}>
                   Logout
                 </div>
 
@@ -80,9 +102,6 @@ export default function NavBar() {
           </div>
         </div>
       </div>
-      {isLoginActive && (
-        <LogUser onStateChange={handleStateChange} />
-      )}
     </nav>
   )
 }
