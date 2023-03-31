@@ -36,6 +36,17 @@ export default function SignUser(props, { setCurrUser, setShow }) {
     }
   }
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    const formData = new FormData(formRef.current)
+    const data = Object.fromEntries(formData)
+    const userInfo = {
+      "user": { email: data.email, password: data.password, password_confirmation: data.password_confirmation }
+    }
+    signup(userInfo, setCurrUser)
+    e.target.reset()
+  }
+
   return (
     <div className='background'>
       <div className="signUpCard box-login flex flex-col overflow-scroll bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-lg h-4/5">
