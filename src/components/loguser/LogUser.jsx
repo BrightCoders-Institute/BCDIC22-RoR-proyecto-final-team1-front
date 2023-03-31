@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { FaFacebookSquare } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
@@ -5,10 +6,35 @@ import { FaApple } from 'react-icons/fa'
 
 import './LogUser.css';
 
-export default function SignUser(props) {
+export default function LogUser(props, {setCurrUser, setShow}) {
+  const formRef = useRef();
   function handleClick() {
     props.onStateChange(false);
   }
+
+  const login = async (userInfo, setCurrUser) => {
+    const url = "http://127.0.0.1:4000/login"
+    try {
+      const response = await fetch(url, {
+        method: 'post',
+        headers: {
+          "content-type": 'application/json',
+          "accept": "application/json"
+        },
+        body: JSON.stringify(userInfo)
+      })
+      const data = await response.json()
+      if(!response.ok) {
+        throw data.error
+      }else {
+        localStorage.setItem('token', response.headers.get("Authorization"))
+        setCurrUser(data)
+      }
+    } catch (error) {
+      console.log("Error", error)
+    }
+  }
+
   return (
     <div className='background'>
       <div className="signUpCard box-login flex flex-col overflow-scroll bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-lg h-4/5">
