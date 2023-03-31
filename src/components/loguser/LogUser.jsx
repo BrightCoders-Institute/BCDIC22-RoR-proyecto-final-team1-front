@@ -35,6 +35,22 @@ export default function LogUser(props, {setCurrUser, setShow}) {
     }
   }
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    const formData = new FormData(formRef.current)
+    const data = Object.fromEntries(formData)
+    const userInfo = {
+      "user": { email: data.email, password: data.password }
+    }
+    login(userInfo, setCurrUser)
+    e.target.reset()
+  }
+
+  const handleClick2 = e => {
+    e.preventDefault()
+    setShow(true)
+  }
+
   return (
     <div className='background'>
       <div className="signUpCard box-login flex flex-col overflow-scroll bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-lg h-4/5">
@@ -43,7 +59,7 @@ export default function LogUser(props, {setCurrUser, setShow}) {
           <h1 className="text-center">Inicia sesión o regístrate</h1>
         </div>
         <div className="mt-10">
-          <form class="space-y-4 md:space-y-6" action="#">
+          <form class="space-y-4 md:space-y-6" action="#" ref={formRef} onSubmit={handleSubmit}>
             <div className="flex justify-start items-center">
               <h2 className="text-lg font-extrabold">Te damos la bienvenida a EarthBnD</h2>
             </div>
@@ -55,9 +71,9 @@ export default function LogUser(props, {setCurrUser, setShow}) {
               <label for="password" class="block mb-2 text-md font-bold text-dark dark:text-dark">Contraseña</label>
               <input type="password" name="password" id="password" placeholder="••••••••" class="bg-white border border-gray-700 text-gray-700 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
             </div>
-            <button type="submit" class="w-full text-white bg-[#E00B41] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-lg px-5 py-2.5 text-center dark:bg-[#E00B41] dark:hover:bg-[#EE0B41] dark:focus:ring-primary-800">Login</button>
+            <button type="submit" value="Login" class="w-full text-white bg-[#E00B41] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-lg px-5 py-2.5 text-center dark:bg-[#E00B41] dark:hover:bg-[#EE0B41] dark:focus:ring-primary-800">Login</button>
             <p class="text-sm font-light text-gray-700 dark:text-gray-700">
-              No tienes una cuenta? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">SignUp</a>
+              No tienes una cuenta? <a href="#signup" onClick={handleClick2} class="font-medium text-primary-600 hover:underline dark:text-primary-500">SignUp</a>
             </p>
           </form>
         </div>
