@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router-dom"
 import './Placedetails.css';
 import NavBar from "../../components/nabvar/Nabvar"
 import PlaceDetails from "../../components/placeDetails/placeDetail"
@@ -10,20 +11,20 @@ import OwnerDetails from "../../components/ownerdetails/OwnerDetails"
 import LastDetails from "../../components/lastdetails/LastDetails"
 import Footer from "../../components/footer/Footer"
 
-function Placedetails() {
+export default function Placedetails() {
+  const place = useLoaderData()
   return (
     <>
       <NavBar />
-      <PlaceDetails />
-      <Details /> 
-      <Calendar />
+      <PlaceDetails details={ place } />
+      <Details details={ place }/> 
+      <Calendar details={ place }/>
       <ScoreRating />
       <Reviews />
-      <Gmap />
-      <OwnerDetails />
+      <Gmap details={ place } />
+      <OwnerDetails details={ place }/>
       <LastDetails />
       <Footer />
     </>
   );
 }
-export default Placedetails;
