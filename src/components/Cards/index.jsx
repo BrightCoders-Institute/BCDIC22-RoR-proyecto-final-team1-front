@@ -11,8 +11,8 @@ export default function Cards() {
 			const res = await fetch('http://127.0.0.1:4000/place');
 			const data = await res.json();
 
-			console.log(data.results);
-
+			//console.log(data.results);
+			setPlace(data.results)
 		} catch (err) {
 			console.error(err);
 		}
@@ -22,7 +22,7 @@ export default function Cards() {
 }, [])
 	return (
 		<div className="cards-flex">
-      {place.map((card, i) => (
+      {list.map((card, i) => (
         <Card card={card} key={i} />
       ))}
     </div>
