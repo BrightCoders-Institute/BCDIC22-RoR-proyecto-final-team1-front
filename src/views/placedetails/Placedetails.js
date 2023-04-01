@@ -14,14 +14,13 @@ import Footer from "../../components/footer/Footer"
 export default function Placedetails() {
   const place = useLoaderData()
   // const reviews = useLoaderData()
-  console.log(place)
   return (
     <>
       <NavBar />
       <PlaceDetails details={ place } />
       <Details details={ place }/> 
       <Calendar details={ place }/>
-      <ScoreRating />
+      <ScoreRating details={ place }/>
       <Reviews details={ place }/>
       <Gmap details={ place } />
       <OwnerDetails details={ place }/>
