@@ -9,7 +9,7 @@ import logo from '../../assets/airbnb-icon.svg';
 
 import './NavBar.css'
 
-const NavBar = ({ setCurrUser }) => {
+const NavBar = (props) => {
   const [isActive, setIsActive] = useState(false)
   const [isLoginActive, setIsLoginActive] = useState(false)
   const [isSignupActive, setIsSignupActive] = useState(false)
@@ -66,10 +66,10 @@ const NavBar = ({ setCurrUser }) => {
         </div>
       </div>
       {isLoginActive && (
-        <LogUser onStateChange={handleStateChange} setCurrUser={setCurrUser} setShow={setShow} />
+        <LogUser onStateChange={handleStateChange} currUser={props.currUser} setCurrUser={props.setCurrUser} setShow={setShow} />
       )}
       {isSignupActive && (
-        <SignUser onStateChange={handleStateChange} setCurrUser={setCurrUser} setShow={setShow} />
+        <SignUser onStateChange={handleStateChange} currUser={props.currUser} setCurrUser={props.setCurrUser} setShow={setShow} />
       )}
     </nav>
   )

@@ -6,7 +6,7 @@ import { FaApple } from 'react-icons/fa'
 
 import './SignUser.css';
 
-const SignUser = (props, { setCurrUser, setShow }) => {
+const SignUser = (props) => {
   const formRef = useRef();
 
   function handleClick() {
@@ -25,7 +25,7 @@ const SignUser = (props, { setCurrUser, setShow }) => {
         body: JSON.stringify(userInfo)
       })
       const data = await response.json()
-      if(!response.ok) throw data.error
+      if (!response.ok) throw data.error
 
       localStorage.setItem('token', response.headers.get("Authorization"))
       setCurrUser(data)
@@ -41,13 +41,13 @@ const SignUser = (props, { setCurrUser, setShow }) => {
     const userInfo = {
       "user": { email: data.email, password: data.password, password_confirmation: data.password_confirmation }
     }
-    signup(userInfo, setCurrUser)
+    signup(userInfo, props.setCurrUser)
     e.target.reset()
   }
 
   const handleClick2 = e => {
     e.preventDefault()
-    setShow(true)
+    props.setShow(true)
   }
 
   return (
