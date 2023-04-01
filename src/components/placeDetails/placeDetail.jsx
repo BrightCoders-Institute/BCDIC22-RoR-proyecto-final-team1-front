@@ -27,7 +27,7 @@ export default function PlaceDetail({details}) {
             <p>.</p>
           </div>
           <div className="evaluation-detail">
-            <p className="text-evaluation">86 evaluaciones</p>
+            <p className="text-evaluation">{details.reviews.length}{details.reviews.length === 1 ? ' review' : ' reviews'  }</p>
           </div>
           <div className="separador">
             <p>.</p>
