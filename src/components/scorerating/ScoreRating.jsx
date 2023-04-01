@@ -14,7 +14,6 @@ const scoreRow2 = [
 ];
 
 export default function scoreRating({ details }) {
-  console.log(details.reviews.length)
   return (
     <>
       <div className="flex items-center mt-6 mb-5 px-8  gen-score">
