@@ -13,6 +13,8 @@ import Footer from "../../components/footer/Footer"
 
 export default function Placedetails() {
   const place = useLoaderData()
+  // const reviews = useLoaderData()
+  console.log(place)
   return (
     <>
       <NavBar />
@@ -20,7 +22,7 @@ export default function Placedetails() {
       <Details details={ place }/> 
       <Calendar details={ place }/>
       <ScoreRating />
-      <Reviews />
+      <Reviews details={ place }/>
       <Gmap details={ place } />
       <OwnerDetails details={ place }/>
       <LastDetails />
