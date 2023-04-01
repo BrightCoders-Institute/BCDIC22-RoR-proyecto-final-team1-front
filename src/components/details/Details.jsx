@@ -17,16 +17,20 @@ import { MdSmokeFree } from "react-icons/md";
 import aircover from "../../assets/aircover.jpg";
 import Reserve from "../../components/reserve/reserve"
 
-export default function footer() {
+export default function footer({details}) {
   return (
     <div className="body">
       <div className='fst-c'>
         <div className='c-sty'>
           <div className='seller'>
             <p className='bld text-xl'>
-              Habitación privada en cabaña. Anfitrión: Ale Y Cris
+              { details.description }. Anfitrión: {details.user}
             </p>
-            <p className='text-base'>2 huéspedes · 1 habitación · 1 cama · 1 baño privado
+            <p className='text-base'>
+              <i>{ details.max_guest } huéspede{ details.max_guest > 1 ? "s":"" } · </i>
+              <i>{ details.number_rooms} { details.number_rooms > 1 ? "habitaciones":"habitación"} · </i>
+              <i>1 cama · </i>
+              <i>{ details.number_bathrooms } baño{ details.number_bathrooms > 1 ? "s":""} privado{ details.number_bathrooms > 1 ? "s":""}</i>
             </p>
           </div>
           <div className='seller-pp'>
@@ -39,7 +43,7 @@ export default function footer() {
               <TrophyIcon className="icon" />
             </div>
             <div>
-              <p className='bld'>Ale Y Cris es SuperAnfitrión</p>
+              <p className='bld'>{details.user} es SuperAnfitrión</p>
               <p>Los SuperAnfitriones son anfitriones experimentados,
                 con evaluaciones excelentes, que se esfuerzan al máximo por ofrecer estancias maravillosas.</p>
             </div>

@@ -1,10 +1,10 @@
 import "./placedetails.css";
 
-export default function PlaceDetail(place) {
+export default function PlaceDetail({details}) {
   return (
     <div className="place-detail-flex">
       <h3 className="title-place">
-        Exclusiva Villa con Vista al Mar en Punta Diamante
+        { details.name }
       </h3>
       <div className="details-container">
         <div className="details">
@@ -53,7 +53,7 @@ export default function PlaceDetail(place) {
             <p>.</p>
           </div>
           <div className="text-countri">
-            <p className="text-ubication text-underline">Cancun, Yucatan, México</p>
+            <p className="text-ubication text-underline">{details.city}, {details.state}, México</p>
           </div>
         </div>
         <div className="actions-items">

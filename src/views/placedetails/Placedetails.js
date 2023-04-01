@@ -1,3 +1,5 @@
+import { useLoaderData } from "react-router-dom"
+
 import User from "../../components/User"
 import PlaceDetails from "../../components/placeDetails/placeDetail"
 import Details from "../../components/details/Details"
@@ -11,20 +13,20 @@ import Footer from "../../components/footer/Footer"
 
 import './Placedetails.css';
 
-function Placedetails() {
+export default function Placedetails() {
+  const place = useLoaderData()
   return (
     <>
       <User />
-      <PlaceDetails />
-      <Details />
-      <Calendar />
+      <PlaceDetails details={ place } />
+      <Details details={ place }/> 
+      <Calendar details={ place }/>
       <ScoreRating />
       <Reviews />
-      <Gmap />
-      <OwnerDetails />
+      <Gmap details={ place } />
+      <OwnerDetails details={ place }/>
       <LastDetails />
       <Footer />
     </>
   );
 }
-export default Placedetails;
