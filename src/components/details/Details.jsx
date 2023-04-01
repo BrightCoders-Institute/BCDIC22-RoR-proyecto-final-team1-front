@@ -18,19 +18,20 @@ import aircover from "../../assets/aircover.jpg";
 import Reserve from "../../components/reserve/reserve"
 
 export default function footer({details}) {
+  console.log(details.place.user)
   return (
     <div className="body">
       <div className='fst-c'>
         <div className='c-sty'>
           <div className='seller'>
             <p className='bld text-xl'>
-              { details.description }. Anfitrión: {details.user}
+              { details.place.description }. Anfitrión: {details.place.user}
             </p>
             <p className='text-base'>
-              <i>{ details.max_guest } huéspede{ details.max_guest > 1 ? "s":"" } · </i>
-              <i>{ details.number_rooms} { details.number_rooms > 1 ? "habitaciones":"habitación"} · </i>
+              <i>{ details.place.max_guest } huéspede{ details.place.max_guest > 1 ? "s":"" } · </i>
+              <i>{ details.place.number_rooms} { details.place.number_rooms > 1 ? "habitaciones":"habitación"} · </i>
               <i>1 cama · </i>
-              <i>{ details.number_bathrooms } baño{ details.number_bathrooms > 1 ? "s":""} privado{ details.number_bathrooms > 1 ? "s":""}</i>
+              <i>{ details.place.number_bathrooms } baño{ details.place.number_bathrooms > 1 ? "s":""} privado{ details.place.number_bathrooms > 1 ? "s":""}</i>
             </p>
           </div>
           <div className='seller-pp'>
@@ -43,7 +44,7 @@ export default function footer({details}) {
               <TrophyIcon className="icon" />
             </div>
             <div>
-              <p className='bld'>{details.user} es SuperAnfitrión</p>
+              <p className='bld'>{details.place.user} es SuperAnfitrión</p>
               <p>Los SuperAnfitriones son anfitriones experimentados,
                 con evaluaciones excelentes, que se esfuerzan al máximo por ofrecer estancias maravillosas.</p>
             </div>
