@@ -6,7 +6,7 @@ import Cards from "../components/Cards/index"
 
 import './Homepage.css';
 
-function Homepage() {
+const Homepage = () => {
   const [currUser, setCurrUser] = useState(null);
   return (
     <>

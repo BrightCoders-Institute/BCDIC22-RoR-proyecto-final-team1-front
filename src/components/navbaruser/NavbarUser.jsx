@@ -7,7 +7,7 @@ import logo from '../../assets/airbnb-icon.svg';
 
 import './NavbarUser.css'
 
-export default function NavBar({setCurrUser}) {
+const NavBarUser = ({setCurrUser}) => {
   const [isActive, setIsActive] = useState(false)
 
   const logout = async (setCurrUser) => {
@@ -105,3 +105,5 @@ export default function NavBar({setCurrUser}) {
     </nav>
   )
 }
+
+export default NavBarUser

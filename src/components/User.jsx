@@ -1,18 +1,19 @@
 import Nabvar from "../components/nabvar/Nabvar"
 import NavbarUser from "../components/navbaruser/NavbarUser"
 
-export default function User({ currUser, setCurrUser }) {
-  if (currUser) {
+const User = (props) => {
+  if (props.currUser !== null)
     return (
       <>
-        <NavbarUser setCurrUser={setCurrUser} />
+        <NavbarUser currUser={props.currUser} setCurrUser={props.setCurrUser} />
       </>
     )
-  } else {
-    return (
-      <>
-        <Nabvar setCurrUser={setCurrUser} />
-      </>
-    )
-  }
+
+  return (
+    <>
+      <Nabvar currUser={props.currUser} setCurrUser={props.setCurrUser} />
+    </>
+  )
 }
+
+export default User
