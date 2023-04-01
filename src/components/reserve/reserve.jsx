@@ -19,7 +19,7 @@ export default function Reserve() {
           noche
         </p>
         <Link to={`/place`}>
-          <span className="link-evaluation">1 evaluacion</span>
+          <span className="link-evaluation">1 review</span>
         </Link>
       </div>
       <div className="calender">

@@ -18,7 +18,7 @@ export default function ownerDetails({ details }) {
               <CgProfile className="mx-auto object-cover rounded-full h-16 w-16 " />
             </a>
             <div className="flex flex-col ml-2">
-              <h2 className="text-xl font-bold">Anfitrion: {details.user}</h2>
+              <h2 className="text-xl font-bold">Anfitrion: {details.place.user}</h2>
               <p className="text-gray-500 text-sm">Se registro en diciembre de 2014</p>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default function ownerDetails({ details }) {
               </div>
 
               <div className="mt-4">
-                <p className="text-sm font-extrabold text-dark">{details.user} es SuperAnfitrion</p>
+                <p className="text-sm font-extrabold text-dark">{details.place.user} es SuperAnfitrion</p>
                 <blockquote cite="" className="text-sm font-normal text-dark mt-2">
                   Los super anfirtriones son anfirtriones con experiencia
                   y evaluaciones excelentes, que se esfuerzan al maximo por
