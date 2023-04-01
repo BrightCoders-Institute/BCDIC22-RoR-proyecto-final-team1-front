@@ -1,17 +1,19 @@
+import { useState } from "react"
 import Nabvar from "../components/nabvar/Nabvar"
 import NavbarUser from "../components/navbaruser/NavbarUser"
 
-const User = (props) => {
-  if (props.currUser !== null)
+const User = () => {
+  const [currUser, setCurrUser] = useState(null);
+  if (localStorage.getItem("token") !== null)
     return (
       <>
-        <NavbarUser currUser={props.currUser} setCurrUser={props.setCurrUser} />
+        <NavbarUser currUser={currUser} setCurrUser={setCurrUser} />
       </>
     )
 
   return (
     <>
-      <Nabvar currUser={props.currUser} setCurrUser={props.setCurrUser} />
+      <Nabvar currUser={currUser} setCurrUser={setCurrUser} />
     </>
   )
 }

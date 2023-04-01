@@ -7,7 +7,7 @@ import logo from '../../assets/airbnb-icon.svg';
 
 import './NavbarUser.css'
 
-const NavBarUser = ({setCurrUser}) => {
+const NavBarUser = ({ setCurrUser }) => {
   const [isActive, setIsActive] = useState(false)
 
   const logout = async (setCurrUser) => {
@@ -21,11 +21,12 @@ const NavBarUser = ({setCurrUser}) => {
         },
       })
       const data = await response.json()
-      if(!response.ok) {
+      if (!response.ok) {
         throw data.error
-      }else {
+      } else {
         localStorage.removeItem("token")
         setCurrUser(null)
+        window.location.href = "http://localhost:3000/"
       }
     } catch (error) {
       console.log("Error", error)

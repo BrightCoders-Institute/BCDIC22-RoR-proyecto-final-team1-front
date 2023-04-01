@@ -1,4 +1,3 @@
-import { useState } from "react"
 import User from "../components/User"
 import Footer from "../components/footer/Footer"
 import FilterNav from "../components/filternav/Filternav"
@@ -7,10 +6,9 @@ import Cards from "../components/Cards/index"
 import './Homepage.css';
 
 const Homepage = () => {
-  const [currUser, setCurrUser] = useState(null);
   return (
     <>
-      <User currUser={currUser} setCurrUser={setCurrUser} />
+      <User />
       <FilterNav />
       <Cards />
       <Footer />
