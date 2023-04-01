@@ -53,26 +53,26 @@ export default function ownerDetails({ details }) {
 
               <div className="mt-4">
                 <p className="text-sm font-extrabold text-dark">Durante tu estancia</p>
-                <p className="text-dark text-sm font-normal mt-2">Solo cuando sea necesario</p>
+                <p className="text-dark text-sm font-normal mt-2">Solo cuando sea necesario.</p>
               </div>
 
               <div className="mt-4">
-                <p className="text-sm font-extrabold text-dark">{details.place.user} es SuperAnfitrion</p>
+                <p className="text-sm font-extrabold text-dark">{details.place.user} es SuperAnfitrión</p>
                 <blockquote cite="" className="text-sm font-normal text-dark mt-2">
-                  Los super anfirtriones son anfirtriones con experiencia
-                  y evaluaciones excelentes, que se esfuerzan al maximo por
-                  ofrecer estancias maravillosas a sus huespedes.
+                  Los super anfitriones son anfitriones con experiencia
+                  y evaluaciones excelentes, que se esfuerzan al máximo por
+                  ofrecer estancias maravillosas a sus huéspedes.
                 </blockquote>
               </div>
             </div>
 
             <div className='gap-4'>
-              <p className="text-dark text-sm font-normal">Idiomas: English, Espanol</p>
-              <p className="text-dark text-sm font-normal mt-2">Indice de respuesta: 100%</p>
+              <p className="text-dark text-sm font-normal">Idiomas: Inglés, Español</p>
+              <p className="text-dark text-sm font-normal mt-2">Índice de respuesta: 100%</p>
               <p className="text-dark text-sm font-normal mt-2">Tiempo de respuesta: En menos de una hora</p>
 
               <div className="mt-4">
-                <button type="button" className="button text-dark hover:bg-slate-200">Contacta al anfitrion</button>
+                <button type="button" className="button text-dark hover:bg-slate-200">Contacta al anfitrión</button>
               </div>
 
               <div className="mt-2 flex justify-start items-center">
@@ -80,7 +80,7 @@ export default function ownerDetails({ details }) {
                 <blockquote cite="" className="text-sm font-light text-justify text-gray-600">
                   Al fin de proteger tus pagos, te pedimos que<br />
                   nunca transfieras dinero ni te comuniques<br />
-                  fuera de las pagina de EarthBnD.
+                  fuera de las página de EarthBnD.
                 </blockquote>
               </div>
             </div>
