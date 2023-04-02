@@ -18,7 +18,6 @@ import aircover from "../../assets/aircover.jpg";
 import Reserve from "../../components/reserve/reserve"
 
 export default function footer({details}) {
-  console.log(details.place.user)
   return (
     <div className="body">
       <div className='fst-c'>
