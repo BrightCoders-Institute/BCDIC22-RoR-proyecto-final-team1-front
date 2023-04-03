@@ -3,22 +3,41 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
-import LogUser from "../loguser/LogUser"
-import SignUser from '../signuser/Signuser'
 import logo from '../../assets/airbnb-icon.svg';
 
-import './NavBar.css'
+import './NavbarUser.css'
 
-const NavBar = (props) => {
+const NavBarUser = ({ setCurrUser }) => {
   const [isActive, setIsActive] = useState(false)
-  const [isLoginActive, setIsLoginActive] = useState(false)
-  const [isSignupActive, setIsSignupActive] = useState(false)
-  const [setShow] = useState(true)
 
-  function handleStateChange(newState) {
-    setIsLoginActive(newState);
-    setIsSignupActive(newState);
+  const logout = async (setCurrUser) => {
+    const url = "http://127.0.0.1:4000/logout"
+    try {
+      const response = await fetch(url, {
+        method: 'delete',
+        headers: {
+          "content-type": 'application/json',
+          "authorization": localStorage.getItem("token")
+        },
+      })
+      const data = await response.json()
+      if (!response.ok) {
+        throw data.error
+      } else {
+        localStorage.removeItem("token")
+        setCurrUser(null)
+        window.location.href = "http://localhost:3000/"
+      }
+    } catch (error) {
+      console.log("Error", error)
+    }
   }
+
+  const handleClick = e => {
+    e.preventDefault()
+    logout(setCurrUser)
+  }
+
   return (
     <nav className='border-b'>
       <div className='nav-container'>
@@ -43,12 +62,22 @@ const NavBar = (props) => {
             </div>
             {isActive && (
               <div className='dropdown-content'>
-                <div className='dropdown-item' onClick={() => setIsSignupActive(true)}>
-                  Registrate
+
+                <div className=''>
+                  <div className='dropdown-item'>
+                    Mensajes
+                  </div>
+                  <div className='dropdown-item'>
+                    Notificaciones
+                  </div>
+                  <div className='dropdown-item'>
+                    Listas de Favoritos
+                  </div>
+                  <div className='dropdown-item'>
+                    Viajes
+                  </div>
                 </div>
-                <div className='dropdown-item' onClick={() => setIsLoginActive(true)}>
-                  Iniciar sesion
-                </div>
+
                 <div className='separator2'>
                   <div className='dropdown-item'>
                     Pon tu casa en EarthDnd
@@ -57,22 +86,25 @@ const NavBar = (props) => {
                     Organiza una experiencia
                   </div>
                   <div className='dropdown-item'>
-                    Ayuda
+                    Cuenta
                   </div>
                 </div>
+
+                <div className='separator2'></div>
+                <div className='dropdown-item'>
+                  Ayuda
+                </div>
+                <div className='dropdown-item' onClick={handleClick}>
+                  Logout
+                </div>
+
               </div>
             )}
           </div>
         </div>
       </div>
-      {isLoginActive && (
-        <LogUser onStateChange={handleStateChange} currUser={props.currUser} setCurrUser={props.setCurrUser} setShow={setShow} />
-      )}
-      {isSignupActive && (
-        <SignUser onStateChange={handleStateChange} currUser={props.currUser} setCurrUser={props.setCurrUser} setShow={setShow} />
-      )}
     </nav>
   )
 }
 
-export default NavBar
+export default NavBarUser
