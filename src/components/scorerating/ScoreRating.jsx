@@ -13,14 +13,14 @@ const scoreRow2 = [
   { id: 3, name: "Calidad-precio", score: 4 },
 ];
 
-export default function scoreRating() {
+export default function scoreRating({ details }) {
   return (
     <>
       <div className="flex items-center mt-6 mb-5 px-8  gen-score">
         <AiFillStar className="h-8 w-8 text-dark inline-flex items-center p-1.5" />
-        <p className="ml-2 text-xl font-medium text-dark dark:text-dark">5.0</p>
+        <p className="ml-2 text-xl font-medium text-dark dark:text-dark">4.98</p>
         <span className="w-1 h-1 mx-2 bg-gray-900 rounded-full dark:bg-dark"></span>
-        <p className="text-xl font-medium text-dark dark:text-dark">376 reviews</p>
+        <p className="text-xl font-medium text-dark dark:text-dark">{details.reviews.length}{details.reviews.length === 1 ? ' review' : ' reviews'  }</p>
       </div>
       <div className="gap-28 sm:grid sm:grid-cols-2 px-8 scores">
         <div>

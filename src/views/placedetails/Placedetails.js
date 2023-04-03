@@ -19,8 +19,8 @@ export default function Placedetails() {
       <PlaceDetails details={ place } />
       <Details details={ place }/> 
       <Calendar details={ place }/>
-      <ScoreRating />
-      <Reviews />
+      <ScoreRating details={ place }/>
+      <Reviews details={ place }/>
       <Gmap details={ place } />
       <OwnerDetails details={ place }/>
       <LastDetails />

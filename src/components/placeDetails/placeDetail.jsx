@@ -4,7 +4,7 @@ export default function PlaceDetail({details}) {
   return (
     <div className="place-detail-flex">
       <h3 className="title-place">
-        { details.name }
+        { details.place.name }
       </h3>
       <div className="details-container">
         <div className="details">
@@ -27,7 +27,7 @@ export default function PlaceDetail({details}) {
             <p>.</p>
           </div>
           <div className="evaluation-detail">
-            <p className="text-evaluation">86 evaluaciones</p>
+            <p className="text-evaluation">{details.reviews.length}{details.reviews.length === 1 ? ' review' : ' reviews'  }</p>
           </div>
           <div className="separador">
             <p>.</p>
@@ -53,7 +53,7 @@ export default function PlaceDetail({details}) {
             <p>.</p>
           </div>
           <div className="text-countri">
-            <p className="text-ubication text-underline">{details.city}, {details.state}, México</p>
+            <p className="text-ubication text-underline">{details.place.city}, {details.place.state}, México</p>
           </div>
         </div>
         <div className="actions-items">

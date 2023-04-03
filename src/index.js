@@ -19,11 +19,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     loader: async ({ params }) => {
       const res = await fetch(`http://127.0.0.1:4000/place/${params.id}.json`)
+      const res2 = await fetch(`http://127.0.0.1:4000/reviews/${params.id}.json`)
       const place = await res.json();
+      const reviews = await res2.json();
       if (res.status === 404) {
         throw new Response("Not Found", { status: 404, statusText:place.error } );
       }
-      return place;
+      return {place, reviews}
     },
   }
 ]);

@@ -15,7 +15,7 @@ export default function Calendar({details}) {
     const startMs = dateRange.startDate.getTime();
     const endMs = dateRange.endDate.getTime();
     const diffMs = endMs - startMs;
-    return diffMs >= 1 ? Math.floor(diffMs / (1000 * 60 * 60 * 24)+1)+" nights" : "1 night"
+    return diffMs >= 1 ? Math.floor(diffMs / (1000 * 60 * 60 * 24)+1)+" noches" : "1 noche"
   }
   const handleSelect = (ranges) => {
     setDateRange(ranges.selection);
@@ -24,7 +24,7 @@ export default function Calendar({details}) {
   return (
     <>
     <div className='ml-10'>
-      <h5 className='font-bold'>{days()} in {details.city}</h5>
+      <h5 className='font-bold'>{days()} en {details.place.city}</h5>
       <span>{dateRange.startDate.toLocaleDateString('en-US', options)} - {dateRange.endDate.toLocaleDateString('en-US', options)}</span>
     </div>
       <DateRange
