@@ -1,9 +1,7 @@
 import "./card.css";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
 
 export default function Card({ card }) {
   return (
@@ -26,11 +24,11 @@ export default function Card({ card }) {
               clipRule="evenodd"
             />
           </svg>
-          <p>{card.rating}</p>
+          <p>4</p>
         </div>
       </div>
-      <p style={{ marginTop: 0 }}>{card.desc}</p>
-      <p style={{ marginTop: 0 }}>{card.date}</p>
+      <p style={{ marginTop: 0 }}>{card.description}</p>
+      <p style={{ marginTop: 0 }}>15-20 May</p>
       <p
         style={{ marginTop: "0.2rem", fontSize: "1rem", color: "var(--black)" }}
       >

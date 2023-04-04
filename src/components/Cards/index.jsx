@@ -22,7 +22,7 @@ export default function Cards() {
 }, [])
 	return (
 		<div className="cards-flex">
-      {list.map((card, i) => (
+      {place.map((card, i) => (
         <Card card={card} key={i} />
       ))}
     </div>
