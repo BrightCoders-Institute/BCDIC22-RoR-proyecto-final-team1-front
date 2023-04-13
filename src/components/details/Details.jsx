@@ -94,54 +94,54 @@ export default function footer({ details }) {
             {[...Array(numCols)].map((e, index) => (
               <div key={index}>
                 {details.amenities.slice(index * itemsPerCol, (index + 1) * itemsPerCol).map((item, index) => (
-                  <div key={index} className=''>
+                  <div key={index} className='amenities'>
                     {item.name === 'Vista al jardín' ? (
-                      <span className='flex' key={item.id}><GiFlowerPot className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><GiFlowerPot className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'Cocina' ? (
-                      <span className='flex' key={item.id}><MdOutlineFoodBank className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><MdOutlineFoodBank className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'Vista a la playa' ? (
-                      <span className='flex' key={item.id}><MdOutlineBeachAccess className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><MdOutlineBeachAccess className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'Estacionamiento gratuito en las instalaciones' ? (
-                      <span className='flex' key={item.id}><AiOutlineCar className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><AiOutlineCar className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'Jacuzzi privado' ? (
-                      <span className='flex' key={item.id}><MdOutlineHotTub className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><MdOutlineHotTub className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'Televisión y televisión por cable estándar' ? (
-                      <span className='flex' key={item.id}><FiMonitor className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><FiMonitor className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'Terraza o balcón' ? (
-                      <span className='flex' key={item.id}><MdBalcony className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><MdBalcony className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'Jardín privado, Con valla en parte del perímetro' ? (
-                      <span className='flex' key={item.id}><GiFlowerPot className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><GiFlowerPot className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'WIFI' ? (
-                      <span className='flex' key={item.id}><AiOutlineWifi className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><AiOutlineWifi className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
                     {item.name === 'Libre de humo de tabaco' ? (
-                      <span className='flex' key={item.id}><MdSmokeFree className="icon" />{item.name}</span>
+                      <span className='flex items-center' key={item.id}><MdSmokeFree className="icon" />{item.name}</span>
                     ) : (
                       ""
                     )}
