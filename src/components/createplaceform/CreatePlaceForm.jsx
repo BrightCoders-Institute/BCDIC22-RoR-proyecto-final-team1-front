@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import './CreatePlaceForm.css'
 
 const CreatePlaceForm = () => {
+  const [inputValue, setInputValue] = useState('')
+
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+
+    if (value >= 0 || value === '')
+      setInputValue(value)
+  }
+
   return (
     <>
       <div id="background" aria-hidden="true" className="overflow-y-auto overflow-x-hidden justify-center items-center w-full md:inset-0 h-modal md:h-full">
@@ -18,15 +28,15 @@ const CreatePlaceForm = () => {
               <div className="grid gap-4 mb-4 sm:grid-cols-2">
                 <div>
                   <label for="name" className="block mb-2 text-sm font-medium text-white dark:text-dark">Nombre</label>
-                  <input type="text" name="name" id="name" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Nombre del lugar" required="" />
+                  <input type="text" name="name" id="name" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Nombre del lugar" required />
                 </div>
                 <div>
                   <label for="brand" className="block mb-2 text-sm font-medium text-white dark:text-dark">Dueño</label>
-                  <input type="text" name="brand" id="brand" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Pancho" required="" readOnly={true} />
+                  <input type="text" name="brand" id="brand" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Pancho" required readOnly={true} />
                 </div>
                 <div>
                   <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Precio por noche</label>
-                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="$2999" required="" />
+                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="$2999" value={inputValue} onChange={handleInputChange} required />
                 </div>
                 <div>
                   <label for="category" className="block mb-2 text-sm font-medium text-white dark:text-dark">Ciudad</label>
@@ -38,15 +48,15 @@ const CreatePlaceForm = () => {
                 </div>
                 <div>
                   <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Numero de cuartos</label>
-                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="3" required="" />
+                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="3" value={inputValue} onChange={handleInputChange} required />
                 </div>
                 <div>
                   <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Numero de baños</label>
-                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="2" required="" />
+                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="2" value={inputValue} onChange={handleInputChange} required />
                 </div>
                 <div>
                   <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Maximo numero de huespedes</label>
-                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="6" required="" />
+                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="6" value={inputValue} onChange={handleInputChange} required />
                 </div>
                 <div className="sm:col-span-2">
                   <label for="description" className="block mb-2 text-sm font-medium text-white dark:text-dark">Descripcion</label>
