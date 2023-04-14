@@ -3,12 +3,37 @@ import './CreatePlaceForm.css'
 
 const CreatePlaceForm = () => {
   const [inputValue, setInputValue] = useState('')
+  const [inputValue2, setInputValue2] = useState('')
+  const [inputValue3, setInputValue3] = useState('')
+  const [inputValue4, setInputValue4] = useState('')
 
   const handleInputChange = (event) => {
     const value = event.target.value;
 
     if (value >= 0 || value === '')
       setInputValue(value)
+  }
+
+  const handleInputChange2 = (event) => {
+    const value = event.target.value;
+
+    if (value >= 0 || value === '')
+      setInputValue2(value)
+  }
+
+  const handleInputChange3 = (event) => {
+    const value = event.target.value;
+
+
+    if (value >= 0 || value === '')
+      setInputValue3(value)
+  }
+
+  const handleInputChange4 = (event) => {
+    const value = event.target.value;
+
+    if (value >= 0 || value === '')
+      setInputValue4(value)
   }
 
   return (
@@ -47,16 +72,16 @@ const CreatePlaceForm = () => {
                   </select>
                 </div>
                 <div>
-                  <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Numero de cuartos</label>
-                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="3" value={inputValue} onChange={handleInputChange} required />
+                  <label for="rooms" className="block mb-2 text-sm font-medium text-white dark:text-dark">Numero de cuartos</label>
+                  <input type="number" name="rooms" id="rooms" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="3" value={inputValue2} onChange={handleInputChange2} required />
                 </div>
                 <div>
-                  <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Numero de baños</label>
-                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="2" value={inputValue} onChange={handleInputChange} required />
+                  <label for="bathrooms" className="block mb-2 text-sm font-medium text-white dark:text-dark">Numero de baños</label>
+                  <input type="number" name="bathrooms" id="bathrooms" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="2" value={inputValue3} onChange={handleInputChange3} required />
                 </div>
                 <div>
-                  <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Maximo numero de huespedes</label>
-                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="6" value={inputValue} onChange={handleInputChange} required />
+                  <label for="guests" className="block mb-2 text-sm font-medium text-white dark:text-dark">Maximo numero de huespedes</label>
+                  <input type="number" name="guests" id="guests" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="6" value={inputValue4} onChange={handleInputChange4} required />
                 </div>
                 <div className="sm:col-span-2">
                   <label for="description" className="block mb-2 text-sm font-medium text-white dark:text-dark">Descripcion</label>
