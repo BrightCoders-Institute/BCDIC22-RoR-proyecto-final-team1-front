@@ -2,11 +2,6 @@ import { useState } from 'react'
 import './CreatePlaceForm.css'
 
 const CreatePlaceForm = (props) => {
-  // Constants for positive values on inputs where a number is required
-  const [inputValue, setInputValue] = useState('')
-  const [inputValue2, setInputValue2] = useState('')
-  const [inputValue3, setInputValue3] = useState('')
-  const [inputValue4, setInputValue4] = useState('')
 
   // Constants for the values that the form will sent to the api
   const [name, setName] = useState('')
@@ -26,14 +21,14 @@ const CreatePlaceForm = (props) => {
     const value = event.target.value;
 
     if (value >= 0 || value === '')
-      setInputValue(value)
+      setPrice(value)
   }
 
   const handleInputChange2 = (event) => {
     const value = event.target.value;
 
     if (value >= 0 || value === '')
-      setInputValue2(value)
+      setRooms(value)
   }
 
   const handleInputChange3 = (event) => {
@@ -41,14 +36,14 @@ const CreatePlaceForm = (props) => {
 
 
     if (value >= 0 || value === '')
-      setInputValue3(value)
+      setBathrooms(value)
   }
 
   const handleInputChange4 = (event) => {
     const value = event.target.value;
 
     if (value >= 0 || value === '')
-      setInputValue4(value)
+      setGuests(value)
   }
 
   const handleSubmit = async (event) => {
@@ -61,8 +56,15 @@ const CreatePlaceForm = (props) => {
       },
       body: JSON.stringify({ name, host, price, city, rooms, bathrooms, guests, description }),
     });
-  }
 
+    if (response.ok) {
+      const record = await response.json();
+      console.log(record);
+    } else {
+      const errors = await response.json();
+      console.log(errors);
+    }
+  }
 
   return (
     <>
@@ -77,19 +79,19 @@ const CreatePlaceForm = (props) => {
                 <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
               </button>
             </div>
-            <form action="#">
+            <form onSubmit={handleSubmit}>
               <div className="grid gap-4 mb-4 sm:grid-cols-2">
                 <div>
                   <label for="name" className="block mb-2 text-sm font-medium text-white dark:text-dark">Nombre</label>
-                  <input type="text" name="name" id="name" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Nombre del lugar" required />
+                  <input type="text" name="name" id="name" value={name} onChange={(event) => setName(event.target.value)} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Nombre del lugar" required />
                 </div>
                 <div>
                   <label for="host" className="block mb-2 text-sm font-medium text-white dark:text-dark">Dueño</label>
-                  <input type="text" name="host" id="host" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Pancho" required readOnly={true} />
+                  <input type="text" name="host" id="host" value={host} onChange={(event) => setHost(event.target.value)} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Pancho" required readOnly={true} />
                 </div>
                 <div>
                   <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Precio por noche</label>
-                  <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="$2999" value={inputValue} onChange={handleInputChange} required />
+                  <input type="number" name="price" id="price" value={price} onChange={handleInputChange} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="$2999" required />
                 </div>
                 <div>
                   <label for="city" className="block mb-2 text-sm font-medium text-white dark:text-dark">Ciudad</label>
@@ -101,19 +103,19 @@ const CreatePlaceForm = (props) => {
                 </div>
                 <div>
                   <label for="rooms" className="block mb-2 text-sm font-medium text-white dark:text-dark">Numero de cuartos</label>
-                  <input type="number" name="rooms" id="rooms" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="3" value={inputValue2} onChange={handleInputChange2} required />
+                  <input type="number" name="rooms" id="rooms" value={rooms} onChange={handleInputChange2} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="3" required />
                 </div>
                 <div>
                   <label for="bathrooms" className="block mb-2 text-sm font-medium text-white dark:text-dark">Numero de baños</label>
-                  <input type="number" name="bathrooms" id="bathrooms" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="2" value={inputValue3} onChange={handleInputChange3} required />
+                  <input type="number" name="bathrooms" id="bathrooms" value={bathrooms} onChange={handleInputChange3} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="2" required />
                 </div>
                 <div>
                   <label for="guests" className="block mb-2 text-sm font-medium text-white dark:text-dark">Maximo numero de huespedes</label>
-                  <input type="number" name="guests" id="guests" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="6" value={inputValue4} onChange={handleInputChange4} required />
+                  <input type="number" name="guests" id="guests" value={guests} onChange={handleInputChange4} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="6" required />
                 </div>
                 <div className="sm:col-span-2">
                   <label for="description" className="block mb-2 text-sm font-medium text-white dark:text-dark">Descripcion</label>
-                  <textarea id="description" rows="4" className="block p-2.5 w-full text-sm text-white bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Escribe una descripcion del lugar aqui"></textarea>
+                  <textarea id="description" rows="4" value={description} onChange={(event) => setDescription(event.target.value)} className="block p-2.5 w-full text-sm text-white bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Escribe una descripcion del lugar aqui"></textarea>
                 </div>
               </div>
               <button type="submit" className="text-white inline-flex items-center focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 border border-blue-900 hover:bg-blue-900">
