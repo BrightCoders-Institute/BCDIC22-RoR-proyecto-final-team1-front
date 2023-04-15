@@ -1,11 +1,26 @@
 import { useState } from 'react'
 import './CreatePlaceForm.css'
 
-const CreatePlaceForm = () => {
+const CreatePlaceForm = (props) => {
+  // Constants for positive values on inputs where a number is required
   const [inputValue, setInputValue] = useState('')
   const [inputValue2, setInputValue2] = useState('')
   const [inputValue3, setInputValue3] = useState('')
   const [inputValue4, setInputValue4] = useState('')
+
+  // Constants for the values that the form will sent to the api
+  const [name, setName] = useState('')
+  const [host, setHost] = useState('')
+  const [price, setPrice] = useState('')
+  const [city, setCity] = useState('')
+  const [rooms, setRooms] = useState('')
+  const [bathrooms, setBathrooms] = useState('')
+  const [guests, setGuests] = useState('')
+  const [description, setDescription] = useState('')
+
+  function handleClick() {
+    props.onStateChange(false);
+  }
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -36,6 +51,19 @@ const CreatePlaceForm = () => {
       setInputValue4(value)
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch('/newPlace', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, host, price, city, rooms, bathrooms, guests, description }),
+    });
+  }
+
+
   return (
     <>
       <div id="background" aria-hidden="true" className="overflow-y-auto overflow-x-hidden justify-center items-center w-full md:inset-0 h-modal md:h-full">
@@ -45,7 +73,7 @@ const CreatePlaceForm = () => {
               <h3 className="text-lg font-semibold text-white dark:text-dark">
                 Añadir lugar
               </h3>
-              <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-white rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-dark" data-modal-toggle="defaultModal">
+              <button type="button" onClick={handleClick} className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-white rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-dark" data-modal-toggle="defaultModal">
                 <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
               </button>
             </div>
@@ -56,16 +84,16 @@ const CreatePlaceForm = () => {
                   <input type="text" name="name" id="name" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Nombre del lugar" required />
                 </div>
                 <div>
-                  <label for="brand" className="block mb-2 text-sm font-medium text-white dark:text-dark">Dueño</label>
-                  <input type="text" name="brand" id="brand" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Pancho" required readOnly={true} />
+                  <label for="host" className="block mb-2 text-sm font-medium text-white dark:text-dark">Dueño</label>
+                  <input type="text" name="host" id="host" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Pancho" required readOnly={true} />
                 </div>
                 <div>
                   <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Precio por noche</label>
                   <input type="number" name="price" id="price" className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="$2999" value={inputValue} onChange={handleInputChange} required />
                 </div>
                 <div>
-                  <label for="category" className="block mb-2 text-sm font-medium text-white dark:text-dark">Ciudad</label>
-                  <select id="category" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                  <label for="city" className="block mb-2 text-sm font-medium text-white dark:text-dark">Ciudad</label>
+                  <select id="city" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     <option selected="">Selecciona ciudad</option>
                     <option value="TV">Colima</option>
                     <option value="PC">Guadalajara</option>
