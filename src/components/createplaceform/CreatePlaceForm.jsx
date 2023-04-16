@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './CreatePlaceForm.css'
 
 const CreatePlaceForm = (props) => {
@@ -6,17 +6,19 @@ const CreatePlaceForm = (props) => {
   // Constants for the values that the form will sent to the api
   const [name, setName] = useState('')
   const [host, setHost] = useState('')
+  const [cities, setCities] = useState([])
   const [price, setPrice] = useState('')
-  const [city, setCity] = useState('')
   const [rooms, setRooms] = useState('')
   const [bathrooms, setBathrooms] = useState('')
   const [guests, setGuests] = useState('')
   const [description, setDescription] = useState('')
 
+  //Function to close the component
   function handleClick() {
     props.onStateChange(false);
   }
 
+  //Functions to asign positive values to the number inputs
   const handleInputChange = (event) => {
     const value = event.target.value;
 
@@ -46,6 +48,7 @@ const CreatePlaceForm = (props) => {
       setGuests(value)
   }
 
+  //Function to asign the values from the form to the backend places table
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -54,7 +57,7 @@ const CreatePlaceForm = (props) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, host, price, city, rooms, bathrooms, guests, description }),
+      body: JSON.stringify({ host, name, price, cities, rooms, bathrooms, guests, description }),
     });
 
     if (response.ok) {
@@ -65,6 +68,16 @@ const CreatePlaceForm = (props) => {
       console.log(errors);
     }
   }
+
+  // Function to fetch all the cities from the backend cities table
+  useEffect(() => {
+    async function fetchCities() {
+      const response = await fetch('http://127.0.0.1:4000/cities')
+      const data = await response.json();
+      setCities(data)
+    }
+    fetchCities();
+  }, []);
 
   return (
     <>
@@ -82,12 +95,12 @@ const CreatePlaceForm = (props) => {
             <form onSubmit={handleSubmit}>
               <div className="grid gap-4 mb-4 sm:grid-cols-2">
                 <div>
-                  <label for="name" className="block mb-2 text-sm font-medium text-white dark:text-dark">Nombre</label>
-                  <input type="text" name="name" id="name" value={name} onChange={(event) => setName(event.target.value)} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Nombre del lugar" required />
-                </div>
-                <div>
                   <label for="host" className="block mb-2 text-sm font-medium text-white dark:text-dark">Dueño</label>
                   <input type="text" name="host" id="host" value={host} onChange={(event) => setHost(event.target.value)} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Pancho" required readOnly={true} />
+                </div>
+                <div>
+                  <label for="name" className="block mb-2 text-sm font-medium text-white dark:text-dark">Nombre</label>
+                  <input type="text" name="name" id="name" value={name} onChange={(event) => setName(event.target.value)} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Nombre del lugar" required />
                 </div>
                 <div>
                   <label for="price" className="block mb-2 text-sm font-medium text-white dark:text-dark">Precio por noche</label>
@@ -96,9 +109,9 @@ const CreatePlaceForm = (props) => {
                 <div>
                   <label for="city" className="block mb-2 text-sm font-medium text-white dark:text-dark">Ciudad</label>
                   <select id="city" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option selected="">Selecciona ciudad</option>
-                    <option value="TV">Colima</option>
-                    <option value="PC">Guadalajara</option>
+                    {cities.map(city => (
+                      <option key={city.id} value={city.id}>{city.name}</option>
+                    ))}
                   </select>
                 </div>
                 <div>
