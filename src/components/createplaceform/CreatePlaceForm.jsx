@@ -5,8 +5,10 @@ const CreatePlaceForm = (props) => {
 
   // Constants for the values that the form will sent to the api
   const [name, setName] = useState('')
+  const [userData, setUserData] = useState(null)
   const [host, setHost] = useState('')
   const [cities, setCities] = useState([])
+  const [city, setCity] = useState('')
   const [price, setPrice] = useState('')
   const [rooms, setRooms] = useState('')
   const [bathrooms, setBathrooms] = useState('')
@@ -48,16 +50,24 @@ const CreatePlaceForm = (props) => {
       setGuests(value)
   }
 
+  //Change names to the values sent on stringify
+  const user_id = host;
+  const city_id = city;
+  const price_by_night = price;
+  const number_rooms = rooms;
+  const number_bathrooms = bathrooms;
+  const max_guest = guests;
+
   //Function to asign the values from the form to the backend places table
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch('/newPlace', {
+    const response = await fetch('http://127.0.0.1:4000/newPlace', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ host, name, price, cities, rooms, bathrooms, guests, description }),
+      body: JSON.stringify({ user_id, name, price_by_night, city_id, number_rooms, number_bathrooms, max_guest, description }),
     });
 
     if (response.ok) {
@@ -79,6 +89,27 @@ const CreatePlaceForm = (props) => {
     fetchCities();
   }, []);
 
+  //Funtion to get current user data
+  const fetchUserData = async () => {
+
+    try {
+      const response = await fetch('http://127.0.0.1:4000/current_user', {
+        headers: {
+          "content-type": 'application/json',
+          "authorization": localStorage.getItem("token")
+        },
+      });
+      let data = await response.json()
+      setUserData(data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
   return (
     <>
       <div id="background" aria-hidden="true" className="overflow-y-auto overflow-x-hidden justify-center items-center w-full md:inset-0 h-modal md:h-full">
@@ -96,7 +127,9 @@ const CreatePlaceForm = (props) => {
               <div className="grid gap-4 mb-4 sm:grid-cols-2">
                 <div>
                   <label for="host" className="block mb-2 text-sm font-medium text-white dark:text-dark">Dueño</label>
-                  <input type="text" name="host" id="host" value={host} onChange={(event) => setHost(event.target.value)} className="input-text focus:ring-primary-600 focus:border-primary-600" placeholder="Pancho" required readOnly={true} />
+                  {userData && (
+                    <input type="text" name="host" id="host" placeholder={`${userData.name}`} onChange={(event) => setHost(event.target.value)} className="input-text focus:ring-primary-600 focus:border-primary-600" required readOnly={true} />
+                  )}
                 </div>
                 <div>
                   <label for="name" className="block mb-2 text-sm font-medium text-white dark:text-dark">Nombre</label>
@@ -110,7 +143,7 @@ const CreatePlaceForm = (props) => {
                   <label for="city" className="block mb-2 text-sm font-medium text-white dark:text-dark">Ciudad</label>
                   <select id="city" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     {cities.map(city => (
-                      <option key={city.id} value={city.id}>{city.name}</option>
+                      <option key={city.id} value={city.id} onChange={(event) => setCity(event.target.value)}>{city.name}</option>
                     ))}
                   </select>
                 </div>

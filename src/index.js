@@ -23,9 +23,9 @@ const router = createBrowserRouter([
       const place = await res.json();
       const reviews = await res2.json();
       if (res.status === 404) {
-        throw new Response("Not Found", { status: 404, statusText:place.error } );
+        throw new Response("Not Found", { status: 404, statusText: place.error });
       }
-      return {place, reviews}
+      return { place, reviews }
     },
   }
 ]);
