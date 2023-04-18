@@ -17,20 +17,23 @@ import { MdSmokeFree } from "react-icons/md";
 import aircover from "../../assets/aircover.jpg";
 import Reserve from "../../components/reserve/reserve"
 
-export default function footer({details}) {
+export default function footer({ details }) {
+  const numItems = details.amenities.length;
+  const numCols = 2;
+  const itemsPerCol = Math.ceil(numItems / numCols);
   return (
     <div className="body">
       <div className='fst-c'>
         <div className='c-sty'>
           <div className='seller'>
             <p className='bld text-xl'>
-              { details.place.description }. Anfitrión: {details.place.user}
+              {details.place.description}. Anfitrión: {details.place.user}
             </p>
             <p className='text-base'>
-              <i>{ details.place.max_guest } huéspede{ details.place.max_guest > 1 ? "s":"" } · </i>
-              <i>{ details.place.number_rooms} { details.place.number_rooms > 1 ? "habitaciones":"habitación"} · </i>
+              <i>{details.place.max_guest} huéspede{details.place.max_guest > 1 ? "s" : ""} · </i>
+              <i>{details.place.number_rooms} {details.place.number_rooms > 1 ? "habitaciones" : "habitación"} · </i>
               <i>1 cama · </i>
-              <i>{ details.place.number_bathrooms } baño{ details.place.number_bathrooms > 1 ? "s":""} privado{ details.place.number_bathrooms > 1 ? "s":""}</i>
+              <i>{details.place.number_bathrooms} baño{details.place.number_bathrooms > 1 ? "s" : ""} privado{details.place.number_bathrooms > 1 ? "s" : ""}</i>
             </p>
           </div>
           <div className='seller-pp'>
@@ -85,37 +88,75 @@ export default function footer({details}) {
             <MdKeyboardArrowRight className="icon-d" />
           </button>
         </div>
-        <div className='mb-5'>
+        <div className='mb-5 '>
           <p className='bld text-xl mt-5'>Lo que ofrece este lugar</p>
-          <div className='amen'>
-            <div className='i-c'><GiFlowerPot className="icon" /></div>
-            <div className='i-c'><MdOutlineFoodBank className="icon" /></div>
-            <div className='i-c'><MdOutlineHotTub className="icon" /></div>
-            <div className='i-c'><MdBalcony className="icon" /></div>
-            <div className='i-c'><AiOutlineWifi className="icon" /></div>
-            <div className='t-c'>Vista al jardín</div>
-            <div className='t-c'>Cocina</div>
-            <div className='t-c'>Jacuzzi privado</div>
-            <div className='t-c'>Terraza o balcón</div>
-            <div className='t-c'>WIFI</div>
-            <div className='i-c'><MdOutlineBeachAccess className="icon" /></div>
-            <div className='i-c'><AiOutlineCar className="icon" /></div>
-            <div className='i-c'><FiMonitor className="icon" /></div>
-            <div className='i-c'><GiFlowerPot className="icon" /></div>
-            <div className='i-c'><MdSmokeFree className="icon" /></div>
-            <div className='t-c'>Vista a la playa</div>
-            <div className='t-c'>Estacionamiento gratuito en las instalaciones</div>
-            <div className='t-c'>Televisión y televisión por cable estándar</div>
-            <div className='t-c'>Jardín privado, Con valla en parte del perímetro</div>
-            <div className='t-c'>Libre de humo de tabaco</div>
+          <div className={`flex w-1/${numCols}`}>
+            {[...Array(numCols)].map((e, index) => (
+              <div key={index}>
+                {details.amenities.slice(index * itemsPerCol, (index + 1) * itemsPerCol).map((item, index) => (
+                  <div key={index} className='amenities'>
+                    {item.name === 'Vista al jardín' ? (
+                      <span className='flex items-center' key={item.id}><GiFlowerPot className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'Cocina' ? (
+                      <span className='flex items-center' key={item.id}><MdOutlineFoodBank className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'Vista a la playa' ? (
+                      <span className='flex items-center' key={item.id}><MdOutlineBeachAccess className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'Estacionamiento gratuito en las instalaciones' ? (
+                      <span className='flex items-center' key={item.id}><AiOutlineCar className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'Jacuzzi privado' ? (
+                      <span className='flex items-center' key={item.id}><MdOutlineHotTub className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'Televisión y televisión por cable estándar' ? (
+                      <span className='flex items-center' key={item.id}><FiMonitor className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'Terraza o balcón' ? (
+                      <span className='flex items-center' key={item.id}><MdBalcony className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'Jardín privado, Con valla en parte del perímetro' ? (
+                      <span className='flex items-center' key={item.id}><GiFlowerPot className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'WIFI' ? (
+                      <span className='flex items-center' key={item.id}><AiOutlineWifi className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                    {item.name === 'Libre de humo de tabaco' ? (
+                      <span className='flex items-center' key={item.id}><MdSmokeFree className="icon" />{item.name}</span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
           <button className='btn-amen'>Mostrar los 27 servicios</button>
         </div>
-          <div></div>
+        <div></div>
       </div>
       <div>
         <div className='sticky top-5 mb-5'>
-        <div className='mt-5 mb-5'><Reserve /></div>
+          <div className='mt-5 mb-5'><Reserve /></div>
         </div>
       </div>
     </div>

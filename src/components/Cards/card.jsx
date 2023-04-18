@@ -1,31 +1,16 @@
 import "./card.css";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
 
-export default function Card({card}) {
+export default function Card({ card }) {
   return (
     <div className="card-box">
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={15}
-        loop={true}
-        mousewheel={true}
-        cssMode={true}
-        pagination={true}
-        modules={[Pagination, Navigation]}
-        className="swiper-container"
-      >
-        {card.imgSrc.map((src, i) => (
-          <SwiperSlide key={i}>
-            <img src={src} alt="" className="card-img" />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lpibo-ew-1656015868.jpg" 
+			alt="" className="card-img" />
+
       <div className="card-info-flex">
-        <h3 className="card-title">{card.title}</h3>
+        <h3 className="card-title">{card.name}</h3>
         <div className="card-rating">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,13 +24,16 @@ export default function Card({card}) {
               clipRule="evenodd"
             />
           </svg>
-					<p>{card.rating}</p>
+          <p>4</p>
         </div>
       </div>
-			<p style={{marginTop: 0}}>{card.desc}</p>
-			<p style={{marginTop: 0}}>{card.date}</p>
-			<p style={{marginTop: "0.2rem",fontSize:"1rem", color: "var(--black)"}}>
-				<span style={{fontWeight: "600"}}>${card.price}</span> night</p>
+      <p style={{ marginTop: 0 }}>{card.description}</p>
+      <p style={{ marginTop: 0 }}>15-20 May</p>
+      <p
+        style={{ marginTop: "0.2rem", fontSize: "1rem", color: "var(--black)" }}
+      >
+        <span style={{ fontWeight: "600" }}>${card.price}</span> night
+      </p>
     </div>
   );
 }
