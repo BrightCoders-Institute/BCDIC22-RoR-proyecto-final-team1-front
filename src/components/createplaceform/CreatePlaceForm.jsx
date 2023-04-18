@@ -6,9 +6,8 @@ const CreatePlaceForm = (props) => {
   // Constants for the values that the form will sent to the api
   const [name, setName] = useState('')
   const [userData, setUserData] = useState(null)
-  const [host, setHost] = useState('')
   const [cities, setCities] = useState([])
-  const [city, setCity] = useState('')
+  const [city, setCity] = useState(0)
   const [price, setPrice] = useState('')
   const [rooms, setRooms] = useState('')
   const [bathrooms, setBathrooms] = useState('')
@@ -50,8 +49,12 @@ const CreatePlaceForm = (props) => {
       setGuests(value)
   }
 
+  const handleSelectChange = (event) => {
+    const city_id = parseInt(event.target.value)
+    setCity(city_id)
+  }
+
   //Change names to the values sent on stringify
-  const user_id = host;
   const city_id = city;
   const price_by_night = price;
   const number_rooms = rooms;
@@ -61,6 +64,7 @@ const CreatePlaceForm = (props) => {
   //Function to asign the values from the form to the backend places table
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const user_id = userData.id
 
     const response = await fetch('http://127.0.0.1:4000/newPlace', {
       method: 'POST',
@@ -71,11 +75,10 @@ const CreatePlaceForm = (props) => {
     });
 
     if (response.ok) {
-      const record = await response.json();
-      console.log(record);
+      window.alert('Creado exitosamente')
+      props.onStateChange(false);
     } else {
-      const errors = await response.json();
-      console.log(errors);
+      window.alert('Hubo un error, favor de seleccionar una ciudad')
     }
   }
 
@@ -128,7 +131,7 @@ const CreatePlaceForm = (props) => {
                 <div>
                   <label for="host" className="block mb-2 text-sm font-medium text-white dark:text-dark">Dueño</label>
                   {userData && (
-                    <input type="text" name="host" id="host" placeholder={`${userData.name}`} onChange={(event) => setHost(event.target.value)} className="input-text focus:ring-primary-600 focus:border-primary-600" required readOnly={true} />
+                    <input type="text" name="host" id="host" placeholder={`${userData.name}`} className="input-text focus:ring-primary-600 focus:border-primary-600" required readOnly={true} />
                   )}
                 </div>
                 <div>
@@ -141,9 +144,10 @@ const CreatePlaceForm = (props) => {
                 </div>
                 <div>
                   <label for="city" className="block mb-2 text-sm font-medium text-white dark:text-dark">Ciudad</label>
-                  <select id="city" className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    {cities.map(city => (
-                      <option key={city.id} value={city.id} onChange={(event) => setCity(event.target.value)}>{city.name}</option>
+                  <select id="city" value={city} onChange={handleSelectChange} className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <option value="">Selecciona opcion</option>
+                    {cities.map(cityDis => (
+                      <option key={cityDis.id} value={cityDis.id}>{cityDis.name}</option>
                     ))}
                   </select>
                 </div>
