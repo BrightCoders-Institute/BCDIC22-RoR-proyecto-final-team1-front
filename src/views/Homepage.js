@@ -10,7 +10,7 @@ const Homepage = () => {
     <>
       <User />
       <FilterNav />
-      <Cards />
+      {/* <Cards /> */}
       <Footer />
     </>
   );

@@ -23,23 +23,23 @@ export default function LastDetails() {
             <div className="flex items-start gap-4">
               <div>
                 <h2 className="text-lg font-bold">Seguridad y propiedad</h2>
-                <p className="mt-2 text-sm">Lago, rio u otro cuerpo de agua cercano</p>
+                <p className="mt-2 text-sm">Lago, río u otro cuerpo de agua cercano</p>
                 <p className="mt-2 text-sm">Estructura para trepar o jugar</p>
-                <p className="mt-2 text-sm">Alarma de monoxido de carbono</p>
-                <a href="#" className="arrow">Mostrar más <IoIosArrowForward /> </a>
+                <p className="mt-2 text-sm">Alarma de monóxido de carbono</p>
+                <a href="#" className="arrow">Mostrar más... <IoIosArrowForward /> </a>
 
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <div>
-                <h2 className="text-lg font-bold">Politica de cancelacion</h2>
+                <h2 className="text-lg font-bold">Politica de cancelación</h2>
                 <p className="mt-2 text-sm">Si cancelas antes del 27 de jun., recibiras un reembolso parcial.</p>
                 <p className="mt-2 text-sm">
-                  Consulta la politica de cancelacion completa del anfition, que se aplica incluso si cancelas haber contraido
+                  Consulta la política de cancelación completa del anfritión, que se aplica incluso si cancelas por haber contraído
                   COVID-19 o por cualquier problema relacionado con el coronavirus.
                 </p>
-                <a href="#" className="arrow">Mostrar más <IoIosArrowForward /> </a>
+                <a href="#" className="arrow">Mostrar más... <IoIosArrowForward /> </a>
 
               </div>
             </div>
