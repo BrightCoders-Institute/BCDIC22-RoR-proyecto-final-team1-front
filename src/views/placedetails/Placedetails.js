@@ -18,13 +18,13 @@ export default function Placedetails() {
   return (
     <>
       <User />
-      <PlaceDetails details={ place } />
-      <Details details={ place }/> 
-      <Calendar details={ place }/>
-      <ScoreRating details={ place }/>
-      <Reviews details={ place }/>
-      <Gmap details={ place } />
-      <OwnerDetails details={ place }/>
+      <PlaceDetails details={place} />
+      <Details details={place} />
+      <Calendar details={place} />
+      <ScoreRating details={place} />
+      <Reviews details={place} />
+      <Gmap details={place} />
+      <OwnerDetails details={place} />
       <LastDetails />
       <Footer />
     </>
