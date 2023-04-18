@@ -28,7 +28,7 @@
 }
 
 .icon {
-  @apply h-7 w-7
+  @apply h-7 w-7 mr-2;
 }
 
 .icon-m {
@@ -94,4 +94,8 @@
 
 .btn-amen{
   @apply bg-white rounded-lg hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 border border-black shadow
+}
+
+.amenities {
+  @apply m-1;
 }
