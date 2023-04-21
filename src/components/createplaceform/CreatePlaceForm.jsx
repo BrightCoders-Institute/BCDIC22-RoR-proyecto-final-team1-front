@@ -66,7 +66,7 @@ const CreatePlaceForm = (props) => {
     event.preventDefault();
     const user_id = userData.id
 
-    const response = await fetch('http://127.0.0.1:4000/newPlace', {
+    const response = await fetch('https://earthbnd.onrender.com/newPlace', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ const CreatePlaceForm = (props) => {
   // Function to fetch all the cities from the backend cities table
   useEffect(() => {
     async function fetchCities() {
-      const response = await fetch('http://127.0.0.1:4000/cities')
+      const response = await fetch('https://earthbnd.onrender.com/cities')
       const data = await response.json();
       setCities(data)
     }
@@ -96,7 +96,7 @@ const CreatePlaceForm = (props) => {
   const fetchUserData = async () => {
 
     try {
-      const response = await fetch('http://127.0.0.1:4000/current_user', {
+      const response = await fetch('https://earthbnd.onrender.com/current_user', {
         headers: {
           "content-type": 'application/json',
           "authorization": localStorage.getItem("token")

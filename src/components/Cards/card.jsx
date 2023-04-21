@@ -6,8 +6,8 @@ import "swiper/css/navigation";
 export default function Card({ card }) {
   return (
     <div className="card-box">
-      <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lpibo-ew-1656015868.jpg" 
-			alt="" className="card-img" />
+      <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lpibo-ew-1656015868.jpg"
+        alt="" className="card-img" />
 
       <div className="card-info-flex">
         <h3 className="card-title">{card.name}</h3>
@@ -32,7 +32,7 @@ export default function Card({ card }) {
       <p
         style={{ marginTop: "0.2rem", fontSize: "1rem", color: "var(--black)" }}
       >
-        <span style={{ fontWeight: "600" }}>${card.price}</span> night
+        <span style={{ fontWeight: "600" }}>${card.price_by_night}</span> night
       </p>
     </div>
   );
