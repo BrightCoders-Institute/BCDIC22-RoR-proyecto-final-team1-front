@@ -1,5 +1,18 @@
+.bdy{
+  @apply mx-80
+}
+
+
 .top{
-@apply mx-8 text-center mb-10
+@apply mx-8  mb-10 mt-20
+}
+
+.cuenta{
+  @apply font-black text-3xl
+}
+
+.detailsp{
+  @apply text-lg flex mr-2
 }
 
 .mid{
@@ -15,13 +28,14 @@
 }
 
 .card-1{
-@apply block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700
+@apply block max-w-sm p-6 bg-white border 
+rounded-lg drop-shadow-lg hover:bg-gray-100
 }
 
 .int-card{
-  @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white
+  @apply mb-2 text-xl font-bold tracking-tight text-black
 }
 
 .ext-card{
-  @apply font-normal text-gray-700 dark:text-gray-400
+  @apply font-normal text-gray-500 -mb-3 text-sm
 }
