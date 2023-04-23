@@ -19,6 +19,7 @@ import Reserve from "../../components/reserve/reserve"
 
 export default function footer({ details }) {
   const numItems = details.amenities.length;
+  const place = details
   const numCols = 2;
   const itemsPerCol = Math.ceil(numItems / numCols);
   return (
@@ -156,7 +157,7 @@ export default function footer({ details }) {
       </div>
       <div>
         <div className='sticky top-5 mb-5'>
-          <div className='mt-5 mb-5'><Reserve /></div>
+          <div className='mt-5 mb-5'><Reserve details={place} /></div>
         </div>
       </div>
     </div>

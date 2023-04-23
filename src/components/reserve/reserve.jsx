@@ -1,7 +1,11 @@
 import "./reserve.css";
 import { Link } from "react-router-dom";
 
-export default function Reserve() {
+export default function Reserve({details}) {
+
+  const price = details.place.price_by_night;
+  const priceWeek = (price * 7) * .8;
+
   return (
     <div className="reserve-flex">
       <div className="price">
@@ -14,9 +18,8 @@ export default function Reserve() {
           }}
         >
           <span className="price-font" style={{ fontWeight: "600" }}>
-            $18000 MXN
+            ${price} MXN x noche
           </span>{" "}
-          noche
         </p>
         <Link to={`/place`}>
           <span className="link-evaluation">1 review</span>
@@ -51,14 +54,14 @@ export default function Reserve() {
           </svg>
         </button>
       </div>
+      <button className="button-reserve" type="submit">Reservar</button>
       <div className="reserve-button">
-        <button className="button-reserve" type="submit">Reservar</button>
       </div>
       <p>Aún no se te cobrara nada</p>
       <div className="total-reserve">
         <div className="total">
-          <p className='text-multi-day'>$18,000 MXN x 7 noches</p>
-          <p className="text-total">$126,000 MXN</p>
+          <p className='text-multi-day'>${priceWeek} MXN x 7 noches</p>
+          <p className="text-total"><strong>Es un 20% de descuento!!!</strong></p>
         </div>
         <div className="total-iva">
           <p className="text-total-iva"
