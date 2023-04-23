@@ -28,7 +28,7 @@ export default function footer({ details }) {
         <div className='c-sty'>
           <div className='seller'>
             <p className='bld text-xl'>
-              {details.place.description}. Anfitrión: {details.place.user}
+              {details.place.description}. Anfitrión: {details.place.user.name}
             </p>
             <p className='text-base'>
               <i>{details.place.max_guest} huéspede{details.place.max_guest > 1 ? "s" : ""} · </i>
@@ -47,7 +47,7 @@ export default function footer({ details }) {
               <TrophyIcon className="icon" />
             </div>
             <div>
-              <p className='bld'>{details.place.user} es SuperAnfitrión</p>
+              <p className='bld'>{details.place.user.name} es SuperAnfitrión</p>
               <p>Los SuperAnfitriones son anfitriones experimentados,
                 con evaluaciones excelentes, que se esfuerzan al máximo por ofrecer estancias maravillosas.</p>
             </div>
