@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import CreatePlaceForm from '../createplaceform/CreatePlaceForm';
+import CreatePlaceForm from '../../components/createplaceform/CreatePlaceForm';
 
-const FutureView = () => {
+const Userplaces = () => {
   const [isFormActive, setIsFormActive] = useState(false)
 
   const handleStateChange = (newState) => {
@@ -20,4 +20,4 @@ const FutureView = () => {
   )
 }
 
-export default FutureView;
+export default Userplaces;
