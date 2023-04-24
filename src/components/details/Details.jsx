@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './Details.css'
 import { TrophyIcon } from "@heroicons/react/24/outline";
 import { FaSwimmingPool } from "react-icons/fa";

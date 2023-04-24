@@ -8,8 +8,8 @@ import './index.css';
 import Homepage from './views/Homepage';
 import Placedetails from './views/placedetails/Placedetails';
 import ErrorPage from './views/errorPage/errorPage'
+import Userpage from './views/userpage/Userpage'
 import Myplaces from './views/myplaces/Myplaces'
-
 
 const router = createBrowserRouter([
   {
@@ -32,6 +32,10 @@ const router = createBrowserRouter([
       }
       return {place, reviews, amenities}
     },
+  },
+  {
+    path: "/profile",
+    element: <Userpage />,
   },
   {
     path: "/myplaces",
