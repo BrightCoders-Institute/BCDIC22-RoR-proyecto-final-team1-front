@@ -1,41 +1,36 @@
-.bdy{
+.bdy {
   @apply mx-80
 }
 
 
-.top{
-@apply mx-8  mb-10 mt-20
+.top {
+  @apply mx-8 mb-10 mt-20
 }
 
-.cuenta{
+.cuenta {
   @apply font-black text-3xl
 }
 
-.detailsp{
+.detailsp {
   @apply text-lg flex mr-2
 }
 
-.mid{
+.mid {}
 
-}
-
-.bott{
+.bott {
   @apply mx-8 text-center mb-10
 }
 
-.grid-b{
+.grid-b {}
 
+.card-1 {
+  @apply block max-w-sm p-6 bg-white border rounded-lg drop-shadow-lg hover:bg-gray-100
 }
 
-.card-1{
-@apply block max-w-sm p-6 bg-white border 
-rounded-lg drop-shadow-lg hover:bg-gray-100
-}
-
-.int-card{
+.int-card {
   @apply mb-2 text-xl font-bold tracking-tight text-black
 }
 
-.ext-card{
+.ext-card {
   @apply font-normal text-gray-500 -mb-3 text-sm
 }

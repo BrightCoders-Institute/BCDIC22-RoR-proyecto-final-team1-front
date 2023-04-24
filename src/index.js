@@ -10,8 +10,6 @@ import Placedetails from './views/placedetails/Placedetails';
 import ErrorPage from './views/errorPage/errorPage'
 import Userpage from './views/userpage/Userpage'
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
