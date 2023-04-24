@@ -1,0 +1,36 @@
+.bdy {
+  @apply mx-80
+}
+
+
+.top {
+  @apply mx-8 mb-10 mt-20
+}
+
+.cuenta {
+  @apply font-black text-3xl
+}
+
+.detailsp {
+  @apply text-lg flex mr-2
+}
+
+.mid {}
+
+.bott {
+  @apply mx-8 text-center mb-10
+}
+
+.grid-b {}
+
+.card-1 {
+  @apply block max-w-sm p-6 bg-white border rounded-lg drop-shadow-lg hover:bg-gray-100
+}
+
+.int-card {
+  @apply mb-2 text-xl font-bold tracking-tight text-black
+}
+
+.ext-card {
+  @apply font-normal text-gray-500 -mb-3 text-sm
+}

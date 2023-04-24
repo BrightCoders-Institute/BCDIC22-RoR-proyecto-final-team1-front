@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './Footer.css'
 import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
