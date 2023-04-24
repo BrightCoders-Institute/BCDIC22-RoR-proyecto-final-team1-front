@@ -5,15 +5,22 @@ import { FiEdit } from 'react-icons/fi'
 import { AiFillEye } from 'react-icons/ai'
 import { MdDeleteForever } from 'react-icons/md'
 import CreatePlaceForm from '../../components/createplaceform/CreatePlaceForm';
+import EditPlaceForm from '../../components/editplaceform/EditPlaceForm';
 
 const Userplaces = () => {
-  const [isFormActive, setIsFormActive] = useState(false)
+  const [isFormAddActive, setIsFormAddActive] = useState(false)
+  const [isFormEdActive, setIsFormEdActive] = useState(false)
   const [places, setPlaces] = useState([])
   const [userData, setUserData] = useState(null)
+  const [placeId , setPlaceId] = useState('')
   const history = useNavigate()
 
   const handleStateChange = (newState) => {
-    setIsFormActive(newState);
+    setIsFormAddActive(newState);
+  }
+
+  const handleStateChange1 = (newState) => {
+    setIsFormEdActive(newState);
   }
 
   //Function for getting all the places
@@ -21,8 +28,8 @@ const Userplaces = () => {
     fetch('https://earthbnd.onrender.com/places')
       .then(response => response.json())
       .then(data => setPlaces(data));
-  }, []);
 
+  }, []);
   // Function to get user data
 
   const fetchUserData = async () => {
@@ -36,7 +43,8 @@ const Userplaces = () => {
       let data = await response.json()
       setUserData(data)
     } catch (error) {
-      console.log(error);
+      history('/');
+      return null;
     }
   };
 
@@ -44,9 +52,24 @@ const Userplaces = () => {
     fetchUserData();
   }, []);
 
-  if (!userData) {
-    history('/');
-    return null;
+  //Function to delete a place
+  const handleDelete = (place) => {
+    const id = place.id
+    setPlaceId(id)
+    fetch(`https://earthbnd.onrender.com/deletePlace/${placeId}`, {
+      method: 'delete',
+    })
+    .then(response => {
+        if (response.ok) {
+          window.alert('Lugar eliminado correctamente')
+          window.location.reload()
+        }else {
+          window.alert('Ocurrio un problema')
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   const filteredPlaces = places.filter((place) => place.user_id === userData.id)
@@ -57,11 +80,11 @@ const Userplaces = () => {
           <div className="bg-white relative shadow-lg sm:rounded-lg overflow-hidden">
             <div className="flex flex-col md:flex-row items-center justify-end space-y-3 md:space-y-0 md:space-x-4 p-4">
               <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                <button type="button" id="createProductModalButton" onClick={() => setIsFormActive(true)} className="flex items-center justify-center text-black bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 focus:outline-none">
+                <button type="button" id="createProductModalButton" onClick={() => setIsFormAddActive(true)} className="flex items-center justify-center text-black bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 focus:outline-none">
                   <AiOutlinePlus className='h-4 w-4 mr-2' />
                   Add product
                 </button>
-                {isFormActive && (
+                {isFormAddActive && (
                   <CreatePlaceForm onStateChange={handleStateChange} />
                 )}
               </div>
@@ -93,9 +116,18 @@ const Userplaces = () => {
                       <td className="px-4 py-3 max-w-[12rem] truncate">{place.longitude}</td>
                       <td className="px-4 py-3 max-w-[12rem] truncate">{place.description}</td>
                       <td className="px-4 py-3 flex flex-row justify-evenly">
-                        <button type="button"><FiEdit className='h-4 w-4' /></button>
-                        <button type='button'><AiFillEye className='h-4 w-4' /></button>
-                        <button type='button'><MdDeleteForever className='h-4 w-4' /></button>
+                        <div>
+                          <button type="button" onClick={() => setIsFormEdActive(true)}><FiEdit className='h-4 w-4' /></button>
+                          {isFormEdActive && (
+                            <EditPlaceForm onStateChange={handleStateChange1} data={place} />
+                          )}
+                        </div>
+                        <div>
+                          <button type='button'><AiFillEye className='h-4 w-4' /></button>
+                        </div>
+                        <div key={place}>
+                          <button type='button' onClick={() => handleDelete(place)}><MdDeleteForever className='h-4 w-4' /></button>
+                        </div>
                       </td>
                     </tr>
                   ))}
