@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { list } from '../../assets/cards-list';
 import Card from './card'
 import './card.css'
 
