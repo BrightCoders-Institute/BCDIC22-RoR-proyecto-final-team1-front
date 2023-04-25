@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './CreatePlaceForm.css'
 
 const CreatePlaceForm = (props) => {
@@ -15,6 +16,7 @@ const CreatePlaceForm = (props) => {
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
   const [description, setDescription] = useState('')
+  const history = useNavigate()
 
   //Function to close the component
   function handleClick() {
@@ -95,7 +97,7 @@ const CreatePlaceForm = (props) => {
     if (response.ok) {
       window.alert('Creado exitosamente')
       props.onStateChange(false);
-      window.location.reload()
+      history('/myplaces');
     } else {
       window.alert('Hubo un error, favor de seleccionar una ciudad')
     }
