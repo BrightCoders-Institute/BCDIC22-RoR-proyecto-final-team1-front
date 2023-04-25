@@ -9,6 +9,7 @@ import Homepage from './views/Homepage';
 import Placedetails from './views/placedetails/Placedetails';
 import ErrorPage from './views/errorPage/errorPage'
 import Userpage from './views/userpage/Userpage'
+import Myplaces from './views/myplaces/Myplaces'
 
 const router = createBrowserRouter([
   {
@@ -20,9 +21,9 @@ const router = createBrowserRouter([
     element: <Placedetails />,
     errorElement: <ErrorPage />,
     loader: async ({ params }) => {
-      const res = await fetch(`http://127.0.0.1:4000/place/${params.id}.json`)
-      const res2 = await fetch(`http://127.0.0.1:4000/reviews/${params.id}.json`)
-      const res3 = await fetch(`http://127.0.0.1:4000/amenities/${params.id}.json`)
+      const res = await fetch(`https://earthbnd.onrender.com/place/${params.id}.json`)
+      const res2 = await fetch(`https://earthbnd.onrender.com/reviews/${params.id}.json`)
+      const res3 = await fetch(`https://earthbnd.onrender.com/amenities/${params.id}.json`)
       const place = await res.json();
       const reviews = await res2.json();
       const amenities = await res3.json();
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Userpage />,
+  },
+  {
+    path: "/myplaces",
+    element: <Myplaces />,
   }
 ]);
 

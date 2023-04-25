@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
 import { AiFillStar } from "react-icons/ai"
 import { HiShieldCheck } from "react-icons/hi"
@@ -6,7 +7,29 @@ import { ImDatabase } from "react-icons/im"
 
 import './OwnerDetails.css'
 
-export default function ownerDetails({ details }) {
+export default function OwnerDetails({ details }) {
+
+  const ownerId = details.place.user.id
+  const [userData, setUserData] = useState(null)
+
+  //Funtion to get current user data
+  useEffect(() => {
+    async function fetchUserData() {
+      const url = `https://earthbnd.onrender.com/users/users/${ownerId}`;
+      const response = await fetch(url);
+      const userData = await response.json();
+      setUserData(userData);
+      console.log(ownerId)
+    }
+    fetchUserData();
+  }, [ownerId]);
+
+  //Funcion for the reserve button
+  const handleClick = () => {
+    const url = `https://web.whatsapp.com/send?phone=${userData.phone_number}`;
+    window.open(url, '_blank')
+  }
+
   return (
     <>
 
@@ -18,7 +41,7 @@ export default function ownerDetails({ details }) {
               <CgProfile className="mx-auto object-cover rounded-full h-16 w-16 " />
             </a>
             <div className="flex flex-col ml-2">
-              <h2 className="text-xl font-bold">Anfitrion: {details.place.user}</h2>
+              <h2 className="text-xl font-bold">Anfitrion: {details.place.user.name}</h2>
               <p className="text-gray-500 text-sm">Se registro en diciembre de 2014</p>
             </div>
           </div>
@@ -57,7 +80,7 @@ export default function ownerDetails({ details }) {
               </div>
 
               <div className="mt-4">
-                <p className="text-sm font-extrabold text-dark">{details.place.user} es SuperAnfitrión</p>
+                <p className="text-sm font-extrabold text-dark">{details.place.user.name} es SuperAnfitrión</p>
                 <blockquote cite="" className="text-sm font-normal text-dark mt-2">
                   Los super anfitriones son anfitriones con experiencia
                   y evaluaciones excelentes, que se esfuerzan al máximo por
@@ -72,7 +95,7 @@ export default function ownerDetails({ details }) {
               <p className="text-dark text-sm font-normal mt-2">Tiempo de respuesta: En menos de una hora</p>
 
               <div className="mt-4">
-                <button type="button" className="button text-dark hover:bg-slate-200">Contacta al anfitrión</button>
+                <button type="button" className="button text-dark hover:bg-slate-200" onClick={handleClick}>Contacta al anfitrión</button>
               </div>
 
               <div className="mt-2 flex justify-start items-center">

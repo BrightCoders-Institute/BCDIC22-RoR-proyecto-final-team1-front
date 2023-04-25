@@ -13,7 +13,7 @@ const LogUser = (props) => {
   }
 
   const login = async (userInfo, setCurrUser) => {
-    const url = "http://127.0.0.1:4000/login"
+    const url = "https://earthbnd.onrender.com/login"
     try {
       const response = await fetch(url, {
         method: 'post',

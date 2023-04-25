@@ -11,7 +11,7 @@ const NavBarUser = ({ setCurrUser }) => {
   const [isActive, setIsActive] = useState(false)
 
   const logout = async (setCurrUser) => {
-    const url = "http://127.0.0.1:4000/logout"
+    const url = "https://earthbnd.onrender.com/logout"
     try {
       const response = await fetch(url, {
         method: 'delete',

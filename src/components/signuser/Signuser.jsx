@@ -14,7 +14,7 @@ const SignUser = (props) => {
   }
 
   const signup = async (userInfo, setCurrUser) => {
-    const url = "http://127.0.0.1:4000/signup"
+    const url = "https://earthbnd.onrender.com/signup"
     try {
       const response = await fetch(url, {
         method: 'post',
