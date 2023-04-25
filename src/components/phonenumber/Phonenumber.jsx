@@ -82,7 +82,7 @@ const Phonenumber = (props) => {
               <label for="phone" className="block mb-2 text-md font-bold text-dark dark:text-dark">Num. de telefono</label>
               <input type="text" name="phone" id="phone" value={phone} onChange={handleInputChange} className="bg-white border border-gray-700 text-gray-700 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
             </div>
-            <button type="submit" value="Submit" className="w-full text-white bg-[#E00B41] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-lg px-5 py-2.5 text-center dark:bg-[#E00B41] dark:hover:bg-[#EE0B41] dark:focus:ring-primary-800">Sign in</button>
+            <button type="submit" value="Submit" className="w-full text-white bg-[#E00B41] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-lg px-5 py-2.5 text-center dark:bg-[#E00B41] dark:hover:bg-[#EE0B41] dark:focus:ring-primary-800">Guardar</button>
           </form>
         </div>
       </div>
