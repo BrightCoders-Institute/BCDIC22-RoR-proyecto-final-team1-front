@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Phonenumber from '../phonenumber/Phonenumber';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/20/solid";
@@ -9,6 +10,12 @@ import './NavbarUser.css'
 
 const NavBarUser = ({ setCurrUser }) => {
   const [isActive, setIsActive] = useState(false)
+  const [isPhoneActive, setIsPhoneActive] = useState(false)
+  const [setShow] = useState(true)
+
+  function handleStateChange(newState) {
+    setIsPhoneActive(newState);
+  }
 
   const logout = async (setCurrUser) => {
     const url = "https://earthbnd.onrender.com/logout"
@@ -26,7 +33,8 @@ const NavBarUser = ({ setCurrUser }) => {
       } else {
         localStorage.removeItem("token")
         setCurrUser(null)
-        window.location.href = "http://localhost:3000/"
+        window.location.reload()
+        return null;
       }
     } catch (error) {
       console.log("Error", error)
@@ -80,13 +88,13 @@ const NavBarUser = ({ setCurrUser }) => {
 
                 <div className='separator2'>
                   <div className='dropdown-item'>
-                    Pon tu casa en EarthDnd
+                    <Link to='/myplaces'>Pon tu casa en EarthDnd</Link>
+                  </div>
+                  <div className='dropdown-item' onClick={() => setIsPhoneActive(true)}>
+                    Agrega o cambia tu numero de telefono
                   </div>
                   <div className='dropdown-item'>
-                    Organiza una experiencia
-                  </div>
-                  <div className='dropdown-item'>
-                    Cuenta
+                    <Link to='/profile'>Cuenta</Link>
                   </div>
                 </div>
 
@@ -103,6 +111,9 @@ const NavBarUser = ({ setCurrUser }) => {
           </div>
         </div>
       </div>
+      {isPhoneActive && (
+        <Phonenumber onStateChange={handleStateChange} setShow={setShow} />
+      )}
     </nav>
   )
 }

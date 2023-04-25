@@ -12,7 +12,7 @@ const Userplaces = () => {
   const [isFormEdActive, setIsFormEdActive] = useState(false)
   const [places, setPlaces] = useState([])
   const [userData, setUserData] = useState(null)
-  const [placeId , setPlaceId] = useState('')
+  const [placeId, setPlaceId] = useState('')
   const history = useNavigate()
 
   const handleStateChange = (newState) => {
@@ -59,11 +59,12 @@ const Userplaces = () => {
     fetch(`https://earthbnd.onrender.com/deletePlace/${placeId}`, {
       method: 'delete',
     })
-    .then(response => {
+      .then(response => {
         if (response.ok) {
           window.alert('Lugar eliminado correctamente')
-          window.location.reload()
-        }else {
+          history('/myplaces');
+          return null;
+        } else {
           window.alert('Ocurrio un problema')
         }
       })

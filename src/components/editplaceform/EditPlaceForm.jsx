@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './EditPlaceForm.css'
 
 const EditPlaceForm = (props) => {
@@ -13,6 +14,7 @@ const EditPlaceForm = (props) => {
   const [latitude, setLatitude] = useState(place.latitude)
   const [longitude, setLongitude] = useState(place.longitude)
   const [description, setDescription] = useState(place.description)
+  const history = useNavigate()
 
   //Function to close the component
   function handleClick() {
@@ -80,7 +82,8 @@ const EditPlaceForm = (props) => {
     if (response.ok) {
       window.alert('Editado exitosamente')
       props.onStateChange(false);
-      window.location.reload()
+      history('/myplaces');
+      return null;
     } else {
       window.alert('Hubo un error')
     }

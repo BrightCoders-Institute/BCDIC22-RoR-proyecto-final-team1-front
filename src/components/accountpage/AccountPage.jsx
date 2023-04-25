@@ -1,8 +1,32 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './AccountPage.css'
 import Tarjetas from "./data.jsx";
 
-export default function accountpage() {
+export default function Accountpage() {
+  const [userData, setUserData] = useState(null)
+  const history = useNavigate()
+
+  const fetchUserData = async () => {
+    try {
+      const response = await fetch('https://earthbnd.onrender.com/current_user', {
+        headers: {
+          "content-type": 'application/json',
+          "authorization": localStorage.getItem("token")
+        },
+      });
+      let data = await response.json()
+      setUserData(data)
+    } catch (error) {
+      history('/');
+      return null;
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
   return (
     <>
       <div className='bdy'>
@@ -16,7 +40,7 @@ export default function accountpage() {
         </div>
         <div className="mid">
           <div class="grid grid-cols-3 gap-4">
-            <Tarjetas/>
+            <Tarjetas />
           </div>
         </div>
         <div className="bott">

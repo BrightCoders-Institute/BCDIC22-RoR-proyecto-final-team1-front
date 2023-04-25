@@ -1,0 +1,27 @@
+
+.phoneCard {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  contain: strict;
+}
+
+.box-login {
+  box-shadow: 0 0 20px 6px;
+}
+
+.closeBtn {
+  @apply w-4 h-4 cursor-pointer absolute left-0 ml-11;
+  top: 36px;
+}
+
+.closeBtn:hover {
+  background-color: #f0f0f0;
+  border-radius: 100%;
+}
+
+.background {
+  @apply z-20 top-0 left-0 w-full;
+  position: fixed;
+  font-family: AirbnbCerealBd;
+  height: 100%;
+  background-color: rgba(255,255,255,0.5); /* Replace with your desired background color */
+}
